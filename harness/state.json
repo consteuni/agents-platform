@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "status": "verified",
+  "current_task": "TASK-007",
+  "branch": "main",
+  "last_checkpoint": "2026-10-06T12:14:46+02:00",
+  "next_action": "Copy harness/ and PROJECT_START_PROMPT.md into the target repository and initialize both state files for that project.",
+  "blocked_by": [],
+  "verified": true
+}
