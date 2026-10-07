@@ -1,5 +1,8 @@
 # Plan
 
+> Historical source-kit document retained for reference. For current development guidance, use [Coding Harness](../../coding-harness/SKILL.md). Do not copy this repository's completed tasks or evidence into a target project.
+
+
 ## Goal and Assumptions
 
 Make software engineering principles explicit and mandatory for projects using this harness, while preserving the language-independent v0.2 workflow, Git safety, and token economy.
@@ -23,12 +26,12 @@ Keep `PROJECT_STATE.md` as the human handoff and `state.json` as the minimal ope
 - The agent distinguishes authorized file edits from Git operations that change branches, history, or publication.
 - No dangerous commands or branch changes are performed to build the kit.
 - Documentation is in English; no obsolete domain-specific specification or empty legacy docs/ directory remains.
-- The original ten documents remain, with `state.json`, `KNOWN_FAILURES.md`, and `tools/check.py` added for v0.2 invariants.
+- The original ten documents remain, with `state.json`, `KNOWN_FAILURES.md`, and the historical helper added for v0.2 invariants.
 - Diagnostics, links, and diffs are checked; unverified limitations are disclosed.
 - Baseline, implementation/verification status, and checkpoint rules are documented.
 - Every Markdown basename is unique and all renamed-document links resolve.
 - Token usage is minimized by default without skipping required context, checks, or safety steps.
-- Core validation does not require a language runtime; `tools/check.py` is optional when Python 3 is available.
+- Core validation uses available project tools without requiring a bundled helper.
 - TASK-008 explicitly covers SOLID, KISS, DRY, YAGNI, contracts, testability, reliability, security, and maintainability with observable acceptance criteria.
 - Engineering requirements have one canonical definition, apply proportionally to the change, and do not prescribe a stack or speculative abstractions.
 

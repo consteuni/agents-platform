@@ -1,8 +1,11 @@
 # Operational Context
 
+> Historical source-kit document retained for reference. For current development guidance, use [Coding Harness](../../coding-harness/SKILL.md). Do not copy this repository's completed tasks or evidence into a target project.
+
+
 ## Purpose
 
-This kit is a language-independent documentation guide that can be copied into a project. It contains no application runtime, adds no project dependencies, and does not choose technologies. The included Python validator is optional; agents can perform equivalent checks with available tools. The kit also applies to projects without AI features.
+This kit is a language-independent documentation guide that can be copied into a project. It contains no application runtime, adds no project dependencies, and does not choose technologies. Agents perform relevant checks using the tools already available in the target project. The kit also applies to projects without AI features.
 
 ## Sources and Responsibilities
 

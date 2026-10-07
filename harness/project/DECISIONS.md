@@ -1,5 +1,8 @@
 # Decisions
 
+> Historical source-kit document retained for reference. For current development guidance, use [Coding Harness](../../coding-harness/SKILL.md). Do not copy this repository's completed tasks or evidence into a target project.
+
+
 ## D001 - Language-Independent Guide
 
 Adopted: no application code or default stack. The user specifies technologies in the derived project. D009 later adds a stack-independent standard-library validator without changing project technology choices. The historical orchestrator specification is not a kit requirement.
@@ -50,7 +53,7 @@ Adopted at the user's request: retain compact `PROJECT_STATE.md`, add minimal `s
 
 Rationale: machine state supports reliable resumption and executable consistency checks, while the Markdown state remains readable by humans. The JSON intentionally duplicates only task, status, and next-action essentials. Agents search and read narrowly, bound tool output, and reference canonical documents. Correctness, safety, and required verification take priority over token savings.
 
-Consequence: checkpoints synchronize both state files. Agents validate the same invariants with available tools; `tools/check.py` is an optional shortcut when Python 3 already exists. No language runtime, external package, or project stack is required by the harness.
+Consequence: checkpoints synchronize both state files. Agents validate the same invariants with available tools; historical helpers were optional shortcuts, not prerequisites. No language runtime, external package, or project stack is required by the harness.
 
 ## In a Derived Project
 

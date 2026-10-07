@@ -1,5 +1,8 @@
 # Project Brief
 
+> Historical source-kit document retained for reference. For current development guidance, use [Coding Harness](../../coding-harness/SKILL.md). Do not copy this repository's completed tasks or evidence into a target project.
+
+
 Fill this in with the user after copying the kit. "To be defined" indicates an open choice, not permission to invent it. Remove fields that do not apply.
 
 ## Goal

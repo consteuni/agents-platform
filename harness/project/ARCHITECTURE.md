@@ -1,8 +1,11 @@
 # Project Map
 
+> Historical source-kit document retained for reference. For current development guidance, use [Coding Harness](../../coding-harness/SKILL.md). Do not copy this repository's completed tasks or evidence into a target project.
+
+
 ## Current Kit Structure
 
-Language-independent harness documentation plus one optional Python 3 reference validator: no application modules, APIs, required language runtime, or runtime contracts. Supporting documents are grouped by type; entry points and current state stay at the kit root.
+Earlier language-independent harness documentation and optional legacy utilities: no application modules, APIs, required language runtime, or runtime contracts. Supporting documents are grouped by type; entry points and current state stay at the kit root.
 
 | File | Responsibility |
 | --- | --- |
@@ -16,7 +19,7 @@ Language-independent harness documentation plus one optional Python 3 reference 
 | [planning/TASKS.md](../planning/TASKS.md) | Requirements and affected files |
 | [verification/VERIFICATION.md](../verification/VERIFICATION.md) | Evidence from checks |
 | [verification/KNOWN_FAILURES.md](../verification/KNOWN_FAILURES.md) | Pre-existing failures separated from regressions |
-| [tools/check.py](../tools/check.py) | Optional reference validator; not a project requirement |
+| Legacy tools | Historical optional utilities outside the current skill |
 | [DECISIONS.md](DECISIONS.md) | Choices and rationale |
 
 ## In a Derived Project

@@ -1,6 +1,9 @@
 # Coding Agent Kit
 
-This directory contains the entire kit. Copy harness/ into your project, open the editor, and tell the agent your goal and technology choices. The core workflow requires no programming language or project dependency. The Python 3 validator is an optional reference implementation of checks an agent can perform with available tools.
+> Historical source-kit document retained for reference. For current development guidance, use [Coding Harness](../coding-harness/SKILL.md). Do not copy this repository's completed tasks or evidence into a target project.
+
+
+This directory records the earlier project-oriented kit and its usage. For new work, use the Coding Harness skill linked above; its guidance requires no executable helper or project dependency.
 
 ## Getting Started
 
@@ -36,11 +39,10 @@ harness/
 |-- verification/
 |   |-- VERIFICATION.md
 |   +-- KNOWN_FAILURES.md
-|-- tools/
-|   +-- check.py
+|-- tools/ (legacy utilities outside the current skill)
 ```
 
-The root files are entry points and current state. instructions/ holds operating context; project/ holds project definition, architecture, and decisions; planning/ holds plans and tasks; verification/ holds evidence and known failures; tools/ holds optional helpers. Copy the whole harness/ directory, not individual categories.
+The root files are entry points and current state. instructions/ holds operating context; project/ holds project definition, architecture, and decisions; planning/ holds plans and tasks; verification/ holds evidence and known failures; tools/ holds optional helpers. The former setup copied this directory; new projects should use the current skill and clean templates.
 
 ## Where to Look
 
@@ -53,7 +55,7 @@ The root files are entry points and current state. instructions/ holds operating
 - [planning/PLAN.md](planning/PLAN.md) and [project/DECISIONS.md](project/DECISIONS.md): the plan and rationale.
 - [HARNESS_RULES.md](HARNESS_RULES.md) and [instructions/AGENT_CONTEXT.md](instructions/AGENT_CONTEXT.md): rules and context.
 
-Send `CHECKPOINT` to update both state files with current facts and an executable next action, not to create a commit. State is updated at checkpoints, not in real time; Git shows the actual changes. Validate structure, state, tasks, links, and basic safety with available tools. When Python 3 already exists, `python3 harness/tools/check.py` performs those checks as an optional shortcut.
+Send `CHECKPOINT` to update both state files with current facts and an executable next action, not to create a commit. State is updated at checkpoints, not in real time; Git shows the actual changes. Validate structure, state, tasks, links, and basic safety with available tools.
 
 ## Language-Independent Validation
 

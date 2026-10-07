@@ -1,5 +1,8 @@
 # Verification
 
+> Historical source-kit document retained for reference. For current development guidance, use [Coding Harness](../../coding-harness/SKILL.md). Do not copy this repository's completed tasks or evidence into a target project.
+
+
 Tasks: [planning/TASKS.md](../planning/TASKS.md). Human state: [PROJECT_STATE.md](../PROJECT_STATE.md). Machine state: [state.json](../state.json).
 
 For current work, record command or action, result, timestamp, scope, verification level (`targeted`, `regression`, `integration`, or `manual`), and status. Record reproducible pre-existing failures in [KNOWN_FAILURES.md](KNOWN_FAILURES.md).
@@ -88,12 +91,15 @@ Earlier task records retain the filenames that existed when their checks ran. Cu
 
 Status: verified.
 
+
+Historical tool invocation names were omitted at the user's request; the recorded outcomes describe checks performed on the earlier kit, not validation of the current skill.
+
 ## TASK-007
 
 | Level | Command or Action | Result | Timestamp | Scope | Status |
 | --- | --- | --- | --- | --- | --- |
-| Targeted | `python harness/tools/check.py` | Python launcher alias unavailable in this environment; canonical command changed to `python3` | 2026-10-06T12:10:52+02:00 | Validator launcher | NOT RUN |
-| Targeted | `python3 harness/tools/check.py` | Structure, state, task consistency, links, and safety passed; 0 warnings and 0 errors | 2026-10-06T12:10:52+02:00 | Harness invariants | PASS |
+| Targeted | `[historical tool invocation omitted]` | Historical launcher alias unavailable; subsequent recorded invocation succeeded | 2026-10-06T12:10:52+02:00 | Validator launcher | NOT RUN |
+| Targeted | `[historical tool invocation omitted]` | Structure, state, task consistency, links, and safety passed; 0 warnings and 0 errors | 2026-10-06T12:10:52+02:00 | Harness invariants | PASS |
 | Regression | `jq` state contract check; repository link, basename, line-count, whitespace, secret-pattern, and Git diff checks | Valid 10-line state; all links resolve; unique Markdown basenames; 52-line human state; no whitespace or searched secret-pattern findings | 2026-10-06T12:10:52+02:00 | Machine state and repository documentation | PASS |
 
 The machine and human states agree on TASK-007, `verified`, and the executable next action. No known failures or blockers are recorded.
@@ -104,9 +110,9 @@ Status: verified.
 
 | Level | Command or Action | Result | Timestamp | Scope | Status |
 | --- | --- | --- | --- | --- | --- |
-| Targeted | Baseline: `python3 harness/tools/check.py` on the GitHub main snapshot | All five categories passed; 0 warnings and 0 errors | 2026-10-07T06:31:17Z | Existing harness invariants | PASS |
-| Targeted | Post-change: `python3 harness/tools/check.py` | Structure, state, task consistency, links, and searched secret patterns passed; 0 warnings and 0 errors | 2026-10-07T06:33:45Z | Updated harness invariants | PASS |
-| Regression | Python standard-library repository scan and snapshot comparison | All repository links resolve; unique Markdown basenames; human state below 100 lines; no trailing whitespace; changes restricted to task documents | 2026-10-07T06:33:45Z | Repository documentation and unchanged files | PASS |
+| Targeted | Baseline: `[historical tool invocation omitted]` on the GitHub main snapshot | All five categories passed; 0 warnings and 0 errors | 2026-10-07T06:31:17Z | Existing harness invariants | PASS |
+| Targeted | Post-change: `[historical tool invocation omitted]` | Structure, state, task consistency, links, and searched secret patterns passed; 0 warnings and 0 errors | 2026-10-07T06:33:45Z | Updated harness invariants | PASS |
+| Regression | language-specific standard-library repository scan and snapshot comparison | All repository links resolve; unique Markdown basenames; human state below 100 lines; no trailing whitespace; changes restricted to task documents | 2026-10-07T06:33:45Z | Repository documentation and unchanged files | PASS |
 | Manual | Review snapshot diffs and TASK-008 acceptance criteria | All five SOLID principles, KISS, DRY, YAGNI, contracts, testability, reliability, security, and completion criteria are explicit; startup and README reference canonical rules | 2026-10-07T06:33:45Z | Engineering requirements and entry points | PASS |
 
 Status: verified. This is a documentation change, so application tests, database migration checks, and performance measurements are not applicable. No application code, runtime dependencies, or validator behavior changed. Document checks do not verify that future implementations follow engineering principles.

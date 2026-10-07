@@ -1,5 +1,8 @@
 # Harness Rules
 
+> Historical source-kit document retained for reference. For current development guidance, use [Coding Harness](../coding-harness/SKILL.md). Do not copy this repository's completed tasks or evidence into a target project.
+
+
 ## Role and Principles
 
 Act as a senior developer: make minimal, verifiable changes consistent with the requirement. This kit is language-independent and must remain usable without any specific programming-language runtime. Do not choose a stack or create application directories before receiving the user's choices.
@@ -116,7 +119,7 @@ Keep `PROJECT_STATE.md` below approximately 100 lines and limited to the current
 
 Update state when a goal completes, a decision or architecture changes, a significant issue occurs, a session ends, context becomes long, or the user requests `CHECKPOINT`. The `next_action` must be executable. A checkpoint does not authorize Git operations.
 
-Do not set `status` to `verified` or `verified` to `true` merely because files were edited. Verification must have evidence in [verification/VERIFICATION.md](verification/VERIFICATION.md). After changing harness structure or state, perform the structure, state, task, link, and safety checks with available tools. [tools/check.py](tools/check.py) is an optional shortcut when Python 3 is already available; its absence is not a blocker.
+Do not set `status` to `verified` or `verified` to `true` merely because files were edited. Verification must have evidence in [verification/VERIFICATION.md](verification/VERIFICATION.md). After changing harness structure or state, perform the structure, state, task, link, and safety checks with available tools. No bundled helper is required.
 
 ## Blockers, Failures, and Stop Conditions
 

@@ -1,5 +1,8 @@
 # Tasks
 
+> Historical source-kit document retained for reference. For current development guidance, use [Coding Harness](../../coding-harness/SKILL.md). Do not copy this repository's completed tasks or evidence into a target project.
+
+
 Status and next action: [state.json](../state.json) and [PROJECT_STATE.md](../PROJECT_STATE.md). Plan: [PLAN.md](PLAN.md). Evidence: [verification/VERIFICATION.md](../verification/VERIFICATION.md).
 
 ## TASK-001 - Single Kit and Git Safety
@@ -119,7 +122,7 @@ Requirement: implement the lightweight v0.2 invariants and minimize token usage 
 
 - [state.json](../state.json) and [PROJECT_STATE.md](../PROJECT_STATE.md): synchronized machine and human checkpoints.
 - [HARNESS_RULES.md](../HARNESS_RULES.md): state contract, verification levels, blockers, stop conditions, failure escalation, and token economy.
-- [tools/check.py](../tools/check.py): optional reference implementation of invariant checks.
+- Historical optional helper: optional reference implementation of invariant checks.
 - [verification/KNOWN_FAILURES.md](../verification/KNOWN_FAILURES.md): pre-existing failure register.
 - Root startup prompt, guide, project map, plan, decisions, and verification evidence.
 
@@ -131,7 +134,7 @@ Requirement: implement the lightweight v0.2 invariants and minimize token usage 
 - Token-economy rules require targeted reads, bounded output, canonical references, concise communication, and the lightest capable model when selectable, without skipping required checks or safety.
 - Verification rules distinguish levels and require command or action, result, timestamp, scope, and status.
 - Blocked tasks, known failures, stop conditions, and repeated-failure escalation are explicit.
-- The core workflow and checks require no programming-language runtime; `tools/check.py` passes when Python 3 is available but remains optional.
+- The core workflow and checks are independent of any bundled helper; historical optional-tool results remain in the verification record.
 - All links resolve, the kit remains self-contained, and no Git write operations are performed.
 
 ### Out of scope

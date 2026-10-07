@@ -1,5 +1,8 @@
 # Project State
 
+> Historical source-kit document retained for reference. For current development guidance, use [Coding Harness](../coding-harness/SKILL.md). Do not copy this repository's completed tasks or evidence into a target project.
+
+
 Updated: 2026-10-07 | Branch: main | Source: GitHub snapshot; local Git worktree unavailable
 
 ## Current Objective

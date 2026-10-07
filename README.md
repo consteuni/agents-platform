@@ -1,13 +1,27 @@
-# Coding Agent Harness
+# Coding Harness
 
-The self-contained kit is in **harness/**. It contains no application code and does not choose languages or frameworks.
+A documentation-only skill that guides an agent in developing maintainable code using the project's existing stack and tools.
 
-Copy that directory into your project and follow [harness/HARNESS_GUIDE.md](harness/HARNESS_GUIDE.md). The operating rules are in [harness/HARNESS_RULES.md](harness/HARNESS_RULES.md); compact machine-readable state, tasks, and checks are in the same kit.
+The reusable skill is in [coding-harness/SKILL.md](coding-harness/SKILL.md). Its entry point stays short; engineering and workflow references are loaded when relevant. It includes clean optional templates for project continuity and no executable helpers or required dependencies.
 
-For a guided project setup, also copy [PROJECT_START_PROMPT.md](PROJECT_START_PROMPT.md), fill in its project and technology placeholders, and give it to the agent as the first instruction.
+## Use
 
-The mandatory software engineering requirements in [harness/HARNESS_RULES.md](harness/HARNESS_RULES.md) cover SOLID, KISS, DRY, YAGNI, separation of concerns, contracts, testability, reliability, and security. Apply them proportionally and use their completion criteria to verify each implementation; the optional validator checks harness consistency, not design quality.
+Give the agent this instruction, or use [PROJECT_START_PROMPT.md](PROJECT_START_PROMPT.md):
 
-The rules prohibit branch changes and Git write operations without specific authorization. They are not technical enforcement: also configure branch protections and tool approvals as explained in the guide.
+> Read coding-harness/SKILL.md and use its workflow for this task. Follow this project's instructions and existing stack. Keep changes focused, verify the result, and report actual checks and limitations.
 
-[AGENTS.md](AGENTS.md) at the root is an entry-point reference for agents opening this repository. These two root documents support discovery; the complete reusable kit stays inside harness/.
+Make the `coding-harness/` folder available to the agent or add its SKILL.md to the skill loader supported by your environment. This repository contains the skill source; it does not install or activate itself.
+
+| Resource | Purpose |
+| --- | --- |
+| [SKILL.md](coding-harness/SKILL.md) | Entry point, scope, minimal workflow, and reference routing |
+| [ENGINEERING.md](coding-harness/references/ENGINEERING.md) | Proportionate design and quality requirements |
+| [WORKFLOW.md](coding-harness/references/WORKFLOW.md) | Nontrivial work, verification, checkpoints, and safety |
+| [PROJECT_STATE.md template](coding-harness/assets/templates/PROJECT_STATE.md) | Clean target-project checkpoint |
+| [PROJECT_RECORD.md template](coding-harness/assets/templates/PROJECT_RECORD.md) | Optional brief, plan, decisions, and evidence |
+
+Keep target-project state outside the reusable skill. Reuse the project's conventions, or use `agent-state/` when ongoing work needs a state location. Small changes and read-only reviews require no new planning documents.
+
+Source-repository maintenance facts stay in [REPOSITORY_STATE.md](REPOSITORY_STATE.md) and must not be copied into target projects. Earlier source-kit documents remain in `harness/` for reference and migration; they are not part of the reusable skill. Earlier versions also remain in repository history.
+
+Instructions do not enforce access controls. Configure actual repository protections and tool permissions for the environment.
