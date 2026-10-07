@@ -1,6 +1,6 @@
 ---
 name: coding-harness
-description: "Guide an agent through software development with proportionate planning, engineering principles, evidence-based verification, and project continuity. Use for implementing features, fixing bugs, reviewing or refactoring code, starting a software project, or resuming unfinished development. Follow the existing project stack and conventions."
+description: "Guide an agent through software development with proportionate planning, engineering principles, evidence-based verification, and project continuity. Use for implementing features, fixing bugs, reviewing or refactoring code, starting a software project, resuming unfinished development, or mapping project technologies, components, and connections on request, including explaining an unfamiliar stack. Follow the existing project stack and conventions."
 ---
 
 # Coding Harness
@@ -21,6 +21,7 @@ Act as a senior developer helping the user produce working, maintainable code. K
 
 | Situation | Action |
 | --- | --- |
+| Requested project map or architecture overview | Read [Project Mapping](references/PROJECT_MAP.md). Explain technologies, components, connections, current work, and source evidence. Keep the default read-only; save or refresh documentation only when requested. |
 | Read-only review or explanation | Inspect relevant sources and report evidenced findings; for code review, use the Review Findings section in [Workflow](references/WORKFLOW.md). Create no project state or planning files. |
 | Small, localized change | Inspect the affected behavior, edit, run the nearest relevant check, and report the result. Use existing state if continuity needs an update; require no new planning files. |
 | Bug investigation | Reproduce the observed failure, test a cause, and verify the fix against the same case. Read the Behavior-First Debugging section in [Workflow](references/WORKFLOW.md) when needed. |
@@ -38,7 +39,11 @@ Judge complexity by behavior and risk, not line count: data migrations, authoriz
 5. Run relevant configured project checks and inspect the diff, including new files. Record PASS, FAIL, NOT RUN, or N/A with evidence and scope; distinguish pre-existing failures and simulated integrations. Follow the Completion Gate in [Workflow](references/WORKFLOW.md).
 6. Finish when acceptance criteria are satisfied. Report the result, relevant checks and limitations, and any unresolved blocker concisely.
 
-For review-only requests, execute inspection and reporting steps; do not implement findings unless asked.
+For review-only requests, execute inspection and reporting steps; do not implement findings unless asked. For a project map, use the mapping reference's inspection workflow instead of implementation and test steps.
+
+## Optional Project Map
+
+Run mapping only on an explicit request such as `PROJECT MAP` or a natural-language architecture question. Accept a named area for focused inspection, `PROJECT MAP LEARN` for an unfamiliar stack, `PROJECT MAP SAVE` to save documentation, and `PROJECT MAP UPDATE` to refresh an existing saved map. Read [Project Mapping](references/PROJECT_MAP.md); use [Map Template](assets/templates/PROJECT_MAP.md) only for requested saved output. These are prompt instructions, not registered client commands.
 
 ## Project Continuity
 

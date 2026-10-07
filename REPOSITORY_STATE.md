@@ -1,49 +1,47 @@
 # Repository State
 
-Updated: 2026-10-07T08:48:49.592Z
+Updated: 2026-10-07T10:05:02.489Z
 Branch context: existing source branch; inspect the actual ref before resuming maintenance.
 Access context: connected GitHub repository; local checkout status unavailable.
 
 ## Current Objective
 
-Maintain an instruction-only development skill with generic English documentation, proportionate engineering guidance, truthful verification, and reusable handoffs.
+Maintain an instruction-only development skill with generic English guidance, proportionate engineering practice, truthful verification, project continuity, and optional project orientation.
 
 ## Current Task and Status
 
-TASK-014 — verified
+TASK-015 — verified
 
-Requirement: remove personal identifiers and machine-specific assumptions from current source files, and make installation and update instructions reusable by any user.
+Requirement: provide an on-demand way to understand a large project's current work, technologies, components, connections, and flows, including beginner explanations for an unfamiliar stack.
 
 ## Completed Changes
 
-- Replace the personal checkout location with the source folder resolved from the current working directory.
-- Use a generic repository URL placeholder for cloning, and supplied source files or repositories in the ChatGPT prompt.
-- Explain that home-directory variables resolve for whoever runs the commands.
-- Follow the current branch's configured upstream instead of requiring a particular branch, remote, account, or source folder name.
-- Remove owner-specific source links and account references from maintenance documentation.
-- Preserve standard client installation locations, backups, existing-destination guards, skill behavior, and third-party source attribution.
+- Add optional PROJECT MAP for read-only orientation, named-area focus, LEARN for unfamiliar technologies, SAVE for requested documentation, and UPDATE for a saved map.
+- Add a mapping reference that follows source wiring, distinguishes observations/inferences/unknowns, reports coverage, and separates source inspection from runtime validation.
+- Add a blank map template with technology roles, entry points, connection contracts, a main flow, optional concept guide, change navigation, and preserved decisions.
+- Route the optional workflow from the skill entry point and document activation with client-independent prompt phrases in the README.
+- Preserve existing development rules, state conventions, client installation procedures, anonymity, and English text.
+- Keep the entry point at 58 lines and the reusable skill at ten files. Add no executable tools, dependencies, mandatory scans, automatic mapping, or registered client commands.
 
 ## Verification Evidence
 
-| Action | Result | Scope and Limitations |
-| --- | --- | --- |
-| Scan all twelve source files for personal names, account identifiers, computer names, user-specific home paths, and the previous checkout location | PASS: no personal identifiers remain in current file contents | Public third-party documentation and attribution links are retained |
-| Resolve local Markdown links and heading anchors; review English text and whitespace | PASS | Static source checks |
-| Parse all eight README Bash blocks | PASS | Bash syntax |
-| Exercise copied installations and symlink creation from arbitrary checkout and destination paths containing spaces | PASS: references copied, existing destinations preserved, symlink resolves correctly | Isolated disposable fixtures; no real client installed |
-| Update an isolated checkout using a non-default branch and remote | PASS: follows configured upstream, preserves the old copy, removes obsolete files from the new installation, and retains the branch | Local fixture remote; no production repository changed by the example commands |
-| Exercise dirty-source, missing-upstream, and detached-HEAD conditions | PASS: update stops before changing the installed copy | Isolated fixtures |
-
-Checks completed at 2026-10-07T08:48:49.592Z. Skill instructions, references, templates, and metadata remain unchanged.
+| Action | Result | Timestamp | Scope and Limitations |
+| --- | --- | --- | --- |
+| Resolve repository Markdown links and heading anchors; check package boundaries, anonymous English contents, entry-point size, and whitespace | PASS | 2026-10-07T10:02:23.342Z | Static source checks; instructions cannot enforce future compliance |
+| Parse frontmatter and existing OpenAI metadata; verify project-map and unfamiliar-stack triggers | PASS | 2026-10-07T10:02:23.342Z | Metadata and routing; no personal installation performed |
+| Independent agent used PROJECT MAP LEARN on a small Java/Spring Boot document-download fixture | PASS: language/framework distinction, beginner concepts, source-backed request flow, reading order, declared-version limits, stale queue/cache notes, and explicit runtime unknowns | 2026-10-07T10:03:20.546Z | Synthetic project; no application, build, test, or database execution |
+| Compare all learning-fixture files and Git state with the baseline | PASS: no file modifications, new map/state documents, or commits | 2026-10-07T10:03:20.546Z | Read-only mode boundaries |
+| Independent agent refreshed an existing saved invoice map | PASS: stale queue/202 flow corrected to awaited insertion/201; notes retained; missing bootstrap wiring and runtime evidence remain unknown | 2026-10-07T10:03:59.473Z | Synthetic project; source inspection only |
+| Compare refreshed-map fixture files and Git state with the baseline | PASS: only the existing map changed; application files, unfinished task state, and Git history untouched | 2026-10-07T10:03:59.473Z | Documentation update boundaries |
 
 ## Blockers and Limits
 
-None for the current file update. Repository hosting identity and existing Git history are separate from file contents; this change does not rewrite history or change hosting ownership. A copied personal installation must be updated separately.
+None for the source update. The example projects do not establish real application or integration behavior. A copied personal installation must be updated separately. Repository ownership and existing Git history remain separate from anonymous file contents.
 
 ## Next Action
 
-Use the generic README from any source checkout to install or update the skill for the chosen client.
+Update the installed copy, then request PROJECT MAP or PROJECT MAP LEARN in a target project. Use SAVE or UPDATE only when persistent map documentation is wanted.
 
 ## Authorization
 
-The established source-update scope and current portability request authorize edits on the existing branch. No branch changes, history rewriting, personal installation, or deployment elsewhere are included.
+The established source-update scope and current feature request authorize edits on the existing branch. No branch changes, history rewriting, personal installation, or deployment elsewhere are included.

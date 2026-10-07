@@ -214,6 +214,38 @@ ls "$HOME/.agents/skills/coding-harness/SKILL.md"
 sed -n '1,6p' "$HOME/.agents/skills/coding-harness/SKILL.md"
 ```
 
+## Optional Project Map
+
+When a project becomes difficult to follow, invoke the skill with `PROJECT MAP`. The agent inspects the repository and explains its purpose, current work, major technologies, components, connections, and a representative data flow. Claims include source evidence and distinguish observations from inferences and unknowns.
+
+| Request | Result |
+| --- | --- |
+| `PROJECT MAP` | Read-only overview in the response |
+| `PROJECT MAP LEARN` | Beginner-oriented map that explains an unfamiliar language/framework using real project code |
+| `PROJECT MAP <area or question>` | Focused map of a subsystem, flow, or dependency |
+| `PROJECT MAP SAVE` | Save a map in existing project documentation, or `docs/PROJECT_MAP.md` |
+| `PROJECT MAP UPDATE` | Refresh an existing saved map and preserve user notes |
+
+For example, in Codex:
+
+```text
+$coding-harness PROJECT MAP
+$coding-harness PROJECT MAP LEARN I am new to Java and Spring Boot; explain one request through this project
+$coding-harness PROJECT MAP document processing: explain storage, APIs, and tracking
+$coding-harness PROJECT MAP SAVE
+$coding-harness PROJECT MAP UPDATE
+```
+
+Use `/coding-harness` in Claude Code, or select the skill in Cursor or ChatGPT and include the same request. These phrases are instructions to the skill; they do not register new client commands.
+
+For an unfamiliar stack, LEARN distinguishes the language from the framework, explains the concepts encountered in the actual code, and provides a reading order. It can explain entry points, annotations, dependency wiring, persistence, and failure handling when those exist in the project. It does not assume a standard architecture or replace your code. Add a named area to narrow the explanation; combine LEARN with SAVE only when you want a saved document.
+
+Mapping activates only when requested. It starts with a compact overview for large repositories and follows source connections instead of reading every file. It can include a Mermaid diagram when useful. It explains where to start a change and which direct consumers and tests to inspect.
+
+The default writes no files and runs no applications, tests, or integrations. SAVE and UPDATE authorize map documentation only. Static source observations do not prove that a service is running or that an integration works. Unknowns and coverage limits remain explicit. Architecture maps complement project checkpoints; they do not replace task state or mark unfinished work verified.
+
+Keep generated maps outside the reusable skill. See [Project Mapping](coding-harness/references/PROJECT_MAP.md) for the workflow and [Map Template](coding-harness/assets/templates/PROJECT_MAP.md) for saved output.
+
 ## Resources and Usage
 
 | Resource | Purpose |
@@ -221,6 +253,8 @@ sed -n '1,6p' "$HOME/.agents/skills/coding-harness/SKILL.md"
 | [SKILL.md](coding-harness/SKILL.md) | Main instructions and selection of the smallest workflow |
 | [ENGINEERING.md](coding-harness/references/ENGINEERING.md) | SOLID, KISS, DRY, YAGNI, contracts, security, and testability |
 | [WORKFLOW.md](coding-harness/references/WORKFLOW.md) | Retrieval, debugging, verification, review, and checkpoints |
+| [Project Mapping](coding-harness/references/PROJECT_MAP.md) | Optional architecture, technology, connection, and change navigation workflow |
+| [Map Template](coding-harness/assets/templates/PROJECT_MAP.md) | Blank scaffold for requested saved project maps |
 | [STATE.md](coding-harness/references/STATE.md) | State fields, evidence, and verification conditions |
 | [PROJECT_STATE.md](coding-harness/assets/templates/PROJECT_STATE.md) | Compact Markdown checkpoint |
 | [PROJECT_STATE.json](coding-harness/assets/templates/PROJECT_STATE.json) | Optional structured checkpoint |
