@@ -2,6 +2,19 @@
 
 Read this reference for nontrivial changes, project setup, blockers, state migration, or a checkpoint. Load only the relevant sections.
 
+## Contents
+
+- [Orient and Define the Work](#orient-and-define-the-work)
+- [Focused Context Retrieval](#focused-context-retrieval)
+- [Behavior-First Debugging](#behavior-first-debugging)
+- [Implement and Review](#implement-and-review)
+- [Verify with Evidence](#verify-with-evidence)
+- [Completion Gate](#completion-gate)
+- [Review Findings](#review-findings)
+- [Status and Checkpoint](#status-and-checkpoint)
+- [Authorization and Data Safety](#authorization-and-data-safety)
+- [Stop and Report](#stop-and-report)
+
 ## Orient and Define the Work
 
 - Inspect project instructions, stack, affected code, callers, and tests. Check local Git status when available; do not initialize Git or change branches automatically.
@@ -10,6 +23,25 @@ Read this reference for nontrivial changes, project setup, blockers, state migra
 - Define success, relevant error cases, compatibility, data constraints, and exclusions. Keep a plan to at most five executable steps and identify affected paths.
 - Run the nearest practical baseline check before code changes. Record existing failures separately; do not attribute them to the change without evidence.
 - Use the project's own planning conventions. When absent, use the optional PROJECT_RECORD template for nontrivial work. Do not introduce a documentation process for a trivial fix.
+
+## Focused Context Retrieval
+
+Start with the behavior or symbol named by the request. Read its implementation, relevant callers, interfaces, configuration examples, and tests; do not exclude tests from exploration.
+
+After each search, separate confirmed facts from unresolved questions. Refine the next query with names and terminology found in the repository. Expand to another layer only when a specific gap could affect correctness; do not read the whole repository or repeat unchanged searches.
+
+Search the project and existing dependencies before adding new code. Consult primary documentation when an API or version-specific behavior is uncertain. Do not require external research for a known localized change, and never upload private project data for discovery.
+
+Stop exploration when the required behavior, relevant contracts, existing solution, and next verification step are known. If a critical fact remains unavailable, record it as a blocker rather than guessing.
+
+## Behavior-First Debugging
+
+- Reproduce the reported failure with the smallest safe case before changing code when practical. Capture the actual symptom; distinguish a product defect from missing environment setup.
+- State a plausible cause and the observation that would confirm or reject it. Change one relevant factor at a time; use new evidence to choose the next attempt.
+- For a reproducible bug, add a focused regression test when useful. Observe its expected failure against the original behavior, then its success after the minimal fix.
+- For new testable behavior, prefer a test that expresses acceptance criteria before implementation. Refactor only as necessary while keeping meaningful checks passing.
+- Do not alter assertions or expectations merely to make a failing implementation pass. Change expected behavior only when the requirement justifies it and explain why.
+- Use manual reproduction when no suitable test harness exists; state its limits. Do not create a test framework or impose a coverage percentage for a small change.
 
 ## Implement and Review
 
@@ -33,6 +65,30 @@ Use the project's configured tools and commands; do not require a particular lan
 - Explain what mocks or simulations do not establish. Do not claim a real service, production behavior, or integration was tested from a substitute.
 - Do not prescribe coverage percentages or build commands for an unspecified stack. No application tests are needed for documentation-only work unless behavior depends on it.
 
+## Completion Gate
+
+Before declaring a code change verified, map every acceptance criterion to its evidence and apply relevant configured gates:
+
+| Gate | Apply when |
+| --- | --- |
+| Behavior and regression tests | Observable behavior changes or a reported defect is fixed |
+| Build, type, lint, and formatting checks | The configured project tools and changed files make the check relevant |
+| Integration and data checks | External contracts, shared state, persistence, or migrations are affected |
+| Security and privacy review | Permissions, input boundaries, queries, file access, or sensitive data are affected |
+| Diff and contract review | Every code change, including new files and affected consumers |
+
+Record actual results as PASS, FAIL, NOT RUN, or N/A. Give a reason for NOT RUN or N/A; unperformed or failing required gates prevent verified status. A successful build does not establish correct behavior, and document presence is not verification evidence.
+
+Run each sufficient check once after the relevant change. Rerun when a later edit can invalidate its result, not on a timer. Report the required gates, findings, and limits concisely.
+
+## Review Findings
+
+For a read-only review, lead with demonstrated defects or risks. Give each actionable finding an existing path or symbol, a concrete trigger, likely impact, and relevant evidence. Distinguish observed failure from an inference or an unanswered question.
+
+Prioritize a security issue, data loss, or incorrect required behavior over maintainability and style. Resolve issues that prevent acceptance before marking an implementation verified; record lower-priority follow-up separately without expanding scope.
+
+Do not invent findings, force a quota, claim a test ran when it did not, or modify code during a review-only request. A focused self-review is sufficient unless independent review is available and specifically authorized.
+
 ## Status and Checkpoint
 
 Use these statuses consistently:
@@ -50,6 +106,10 @@ Use one canonical project state file. If the project already maintains machine a
 Update a compact checkpoint when ongoing work completes, scope changes, a blocker appears, a session ends, or the user requests CHECKPOINT. Include the objective, current task and status, actual branch or unavailable context, changed files, verification evidence, blockers, timestamp, and an executable next action. Keep it below approximately 100 lines; replace stale operational facts rather than appending a diary.
 
 For a small completed fix, a concise result is sufficient unless an existing checkpoint would become misleading. For a read-only review, do not create or update project state.
+
+Before exploration becomes implementation, a milestone changes, or ongoing work needs context reduction, save a compact handoff first. Preserve acceptance criteria, verified facts, relevant paths, unresolved hypotheses, last check results, and the next executable action. Do not assume an in-memory task list survives or initiate a host-specific context command automatically.
+
+When a repeatable project lesson is supported by evidence, record its scope, source, and limitations in the project's existing decision or knowledge record. Keep task-specific observations out of global rules; do not rewrite or install skills automatically.
 
 ### Migration from the Earlier Kit
 

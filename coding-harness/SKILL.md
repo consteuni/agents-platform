@@ -21,8 +21,9 @@ Act as a senior developer helping the user produce working, maintainable code. K
 
 | Situation | Action |
 | --- | --- |
-| Read-only review or explanation | Inspect relevant sources and report findings; create no project state or planning files. |
+| Read-only review or explanation | Inspect relevant sources and report evidenced findings; for code review, use the Review Findings section in [Workflow](references/WORKFLOW.md). Create no project state or planning files. |
 | Small, localized change | Inspect the affected behavior, edit, run the nearest relevant check, and report the result. Use existing state if continuity needs an update; require no new planning files. |
+| Bug investigation | Reproduce the observed failure, test a cause, and verify the fix against the same case. Read the Behavior-First Debugging section in [Workflow](references/WORKFLOW.md) when needed. |
 | Nontrivial or continuing work | Read [Workflow](references/WORKFLOW.md), record acceptance criteria and at most five steps, implement a complete useful slice, verify, and checkpoint. |
 | New project with no chosen stack | Clarify only choices needed for the first useful workflow; do not scaffold before those choices are resolved. Infer established choices from an existing repository. |
 
@@ -31,10 +32,10 @@ Judge complexity by behavior and risk, not line count: data migrations, authoriz
 ## Execute
 
 1. Inspect the relevant repository instructions and current request. When using a local checkout, run `git status --short --branch`; keep the current branch and note existing changes. With remote-only access, inspect the actual branch and commit and disclose unavailable local checks.
-2. Search for affected behavior, callers, tests, and existing solutions. Read existing target-project state only when it helps resume work.
-3. Define observable success and relevant failure cases. Run the smallest practical baseline check before code changes; disclose unavailable checks.
+2. Search for affected behavior, callers, tests, and existing solutions. Identify missing facts and refine searches using repository terminology; stop when the behavior and constraints are clear. Read existing target-project state only when it helps resume work.
+3. Define observable success and relevant failure cases. For a bug, reproduce the failure before editing when practical; for testable new behavior, prefer a meaningful failing test before implementation. Disclose unavailable baseline checks.
 4. Implement the smallest change satisfying the requirement. Read [Engineering](references/ENGINEERING.md) when making design choices or reviewing nontrivial code; read only relevant sections for a localized change.
-5. Run relevant configured project checks and inspect the diff, including new files. Distinguish pre-existing failures from regressions and simulated checks from real integrations.
+5. Run relevant configured project checks and inspect the diff, including new files. Record PASS, FAIL, NOT RUN, or N/A with evidence and scope; distinguish pre-existing failures and simulated integrations. Follow the Completion Gate in [Workflow](references/WORKFLOW.md).
 6. Finish when acceptance criteria are satisfied. Report the result, relevant checks and limitations, and any unresolved blocker concisely.
 
 For review-only requests, execute inspection and reporting steps; do not implement findings unless asked.
@@ -44,6 +45,8 @@ For review-only requests, execute inspection and reporting steps; do not impleme
 Keep this skill's instructions and bundled templates unchanged while working on a target project. Store working facts in that project, outside the skill directory.
 
 Reuse the project's established state conventions. If ongoing work has no state location, use `agent-state/PROJECT_STATE.md`; initialize it from [State Template](assets/templates/PROJECT_STATE.md) only when continuity is needed. Add `agent-state/PROJECT_RECORD.md` from [Record Template](assets/templates/PROJECT_RECORD.md) only when plans, decisions, or verification need more space.
+
+Before a phase transition or context reduction in ongoing work, save acceptance criteria, confirmed facts, unresolved issues, and an executable next step. Do not rely on conversation history or task-list tools as the only durable record.
 
 Treat templates as blank starting points. Do not inherit the source repository's completed tasks, evidence, permissions, or technology choices. Read [Workflow](references/WORKFLOW.md) for checkpoint and migration details.
 

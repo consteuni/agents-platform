@@ -25,3 +25,8 @@ Use only sections needed for nontrivial work; reuse existing project documents i
 ## Known Failures
 
 [Pre-existing issue, evidence, impact, and resume condition; omit if none]
+
+## Optional Reusable Findings
+
+[Repeatable project lesson, evidence/source, applicability, and limitations]
+[Record only when useful; keep task-specific observations out of global skill rules]

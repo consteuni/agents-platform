@@ -1,35 +1,37 @@
 # Project State
 
-Fill only with verified facts about the target project. Replace placeholders before saving; do not inherit source-skill task history.
+Fill with target-project facts only. Replace placeholders before saving, keep below approximately 100 lines, and omit optional sections that do not help resume work.
 
 Updated: [ISO-8601 timestamp]
-Branch / access context: [actual branch; note unavailable local worktree checks]
+Branch / access context: [actual branch; disclose unavailable worktree checks]
 
-## Objective
+## Objective and Current Task
 
-[Current user goal and scope]
+[Current user goal, scope, and task identifier when used]
+Status: [pending | in_progress | implemented | verified | blocked]
 
-## Current Task and Status
+## Acceptance and Evidence
 
-[Task or behavior] — [pending | in_progress | implemented | verified | blocked]
+| Criterion | Evidence / Check | Result | Remaining Work |
+| --- | --- | --- | --- |
+| [observable behavior or constraint] | [actual check, timestamp, scope, level] | [PASS / FAIL / NOT RUN / N/A] | [gap, limitation, or reason for N/A] |
 
-## Changed Files
+Use verified only when all required criteria have passing evidence and no required check remains failed or unperformed.
 
-[Relevant paths and purpose; omit if none]
+## Changed Files and Confirmed Facts
 
-## Verification
+[Relevant paths and purpose; confirmed facts and decisions needed to resume]
+[Keep assumptions and unresolved hypotheses separate from established facts]
 
-[Actual command/action, result, timestamp, scope, level, and limitations]
-[Use verified only when acceptance criteria have passing evidence]
+## Blockers and Known Failures
 
-## Blockers
-
-[None, or specific blocker and condition required to resume]
+[None, or specific blocker, observed pre-existing failure, and resume condition]
 
 ## Next Action
 
 [One executable next step; if complete, state completion or the agreed next goal]
 
-## Important Context
+## Optional Working Context
 
-[Only durable facts needed to resume; no secrets or inherited permissions]
+[Active hypothesis, last observation, or project-record location when needed]
+[No secrets, inherited permissions, full logs, or copied source-skill task history]

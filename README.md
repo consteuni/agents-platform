@@ -25,3 +25,14 @@ Keep target-project state outside the reusable skill. Reuse the project's conven
 Source-repository maintenance facts stay in [REPOSITORY_STATE.md](REPOSITORY_STATE.md) and must not be copied into target projects. The superseded source kit has been removed; earlier versions remain available in repository history.
 
 Instructions do not enforce access controls. Configure actual repository protections and tool permissions for the environment.
+
+## Design Inspiration
+
+Workflow refinements draw on [ECC by Affaan Mustafa](https://github.com/affaan-m/ECC) at revision `ef648e01899ba3e8dc6371642deaaf64b4477775`: focused context retrieval, behavior-first debugging, explicit verification gates, and checkpoints at task-phase boundaries. The guidance is written for this skill; no ECC scripts, hooks, dependencies, or agent runtime are included.
+
+| Idea | Adaptation |
+| --- | --- |
+| Iterative retrieval | Refine repository searches around unresolved facts; include relevant tests |
+| Test-first development | Reproduce defects and use meaningful regression tests when proportionate |
+| Verification loop | Record applicable gates and actual results; avoid fixed coverage targets |
+| Strategic compaction | Save a durable handoff before context reduction; require no host-specific command |
