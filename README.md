@@ -1,40 +1,40 @@
 # Coding Harness
 
-Skill per guidare un agente nello sviluppo di codice mantenibile: comprensione del progetto, principi di ingegneria del software, implementazione, verifiche con evidenze e continuità tra sessioni.
+A skill that guides an agent through maintainable software development: understanding the project, applying software engineering principles, implementing changes, verifying with evidence, and preserving continuity across sessions.
 
-Segue linguaggi, framework e strumenti già presenti nel progetto. Contiene istruzioni, riferimenti e template; non richiede un runtime, script, hook o dipendenze aggiuntive.
+Follow the languages, frameworks, and tools already used by the project. The skill contains instructions, references, and templates; it requires no additional runtime, scripts, hooks, or dependencies.
 
-## Scegli il client
+## Choose Your Client
 
-| Client | Installazione personale, disponibile nei progetti locali | Richiamo |
+| Client | Personal installation, available across local projects | Invocation |
 | --- | --- | --- |
-| Codex CLI / estensione IDE | `~/.agents/skills/coding-harness/` | `$coding-harness` oppure `/skills` |
+| Codex CLI / IDE extension | `~/.agents/skills/coding-harness/` | `$coding-harness` or `/skills` |
 | Claude Code | `~/.claude/skills/coding-harness/` | `/coding-harness` |
-| Cursor | `~/.cursor/skills/coding-harness/` | `/` nella chat Agent, poi seleziona la skill |
-| ChatGPT con gestione skill | Creazione personale tramite `@skill-creator` | `@` e selezione della skill |
+| Cursor | `~/.cursor/skills/coding-harness/` | Type `/` in Agent chat, then select the skill |
+| ChatGPT with skill management | Create a personal skill through `@skill-creator` | Type `@` and select the skill |
 
-Disponibile globalmente significa disponibile nei progetti di quell'utente e di quella macchina. L'agente può sceglierla quando la richiesta corrisponde alla descrizione; per usarla con certezza, richiamala esplicitamente all'inizio del lavoro.
+Globally available means available across projects for that user on that machine. The agent may choose the skill when the request matches its description; invoke it explicitly at the start of a task to ensure it is used.
 
-Le cartelle locali non vengono automaticamente installate in ChatGPT o nelle sessioni cloud. I metadati [openai.yaml](coding-harness/agents/openai.yaml) configurano la presentazione e consentono il richiamo implicito nei client che li supportano; non sostituiscono l'installazione.
+Local folders are not automatically installed in ChatGPT or cloud sessions. The [openai.yaml](coding-harness/agents/openai.yaml) metadata configures presentation and permits implicit invocation in clients that support it; it does not replace installation.
 
-## Prepara la sorgente
+## Prepare the Source
 
-I comandi seguenti usano Bash su Linux, macOS o WSL. Gli esempi assumono che la repo sia in `~/codici/agents-platform`; cambia il percorso se necessario.
+The following commands use Bash on Linux, macOS, or WSL. Examples assume the repository is at `~/codici/agents-platform`; adjust the path if needed.
 
-Se hai già scaricato o clonato la repo, usa quella cartella. Altrimenti:
+If you have already downloaded or cloned the repository, use that folder. Otherwise:
 
 ```bash
 mkdir -p "$HOME/codici"
 git clone https://github.com/consteuni/agents-platform.git "$HOME/codici/agents-platform"
 ```
 
-Installa sempre l'intera cartella `coding-harness/`: copiare solo `SKILL.md` rende indisponibili riferimenti e template. La repo contiene la sorgente della skill e non si attiva da sola.
+Always install the entire `coding-harness/` folder: copying only `SKILL.md` leaves references and templates unavailable. This repository contains the skill source and does not activate itself.
 
-## Installa per il tuo client
+## Install for Your Client
 
-Questi comandi sono per una prima installazione. Se la destinazione esiste già, segui [Aggiornamento](#aggiornamento) per conservarne una copia.
+These commands are for a first installation. If the destination already exists, follow [Updating](#updating) to preserve a backup.
 
-### Codex CLI e IDE
+### Codex CLI and IDE
 
 ```bash
 (
@@ -49,13 +49,13 @@ Questi comandi sono per una prima installazione. Se la destinazione esiste già,
 )
 ```
 
-Apri Codex nel progetto e scrivi:
+Open Codex in your project and enter:
 
 ```text
-$coding-harness Implementa questa funzionalità seguendo le convenzioni del progetto.
+$coding-harness Implement this feature using the project's existing conventions.
 ```
 
-Con `/skills` puoi cercare la skill. Codex rileva le modifiche alle skill; se non compare, riavvialo.
+Use `/skills` to find the skill. Codex detects skill changes; restart it if the skill does not appear.
 
 ### Claude Code
 
@@ -72,13 +72,13 @@ Con `/skills` puoi cercare la skill. Codex rileva le modifiche alle skill; se no
 )
 ```
 
-Avvia Claude Code nel progetto e scrivi:
+Start Claude Code in your project and enter:
 
 ```text
-/coding-harness Correggi questo bug e verifica il comportamento.
+/coding-harness Fix this bug and verify the behavior.
 ```
 
-La cartella personale rende la skill disponibile nei progetti locali. Per controllare il caricamento, apri il menu `/` e cerca `coding-harness`.
+The personal folder makes the skill available across local projects. Open the `/` menu and search for `coding-harness` to check discovery.
 
 ### Cursor
 
@@ -95,38 +95,38 @@ La cartella personale rende la skill disponibile nei progetti locali. Per contro
 )
 ```
 
-Apri **Customize → Skills**, poi nella chat Agent digita `/` e seleziona `coding-harness`. Se la skill non viene rilevata dopo l'installazione, riapri il client.
+Open **Customize → Skills**, then type `/` in Agent chat and select `coding-harness`. Reopen the client if it does not discover the skill after installation.
 
-Cursor legge anche `~/.agents/skills/` e directory compatibili con altri client: se l'hai già installata per Codex, verifica prima se è disponibile ed evita copie con lo stesso nome. Per i Cloud Agents, la documentazione indica la sincronizzazione delle skill da `~/.cursor/skills/` tramite **Settings → Agents → Sync Skills for Cloud Agents**; un'installazione locale da sola non viene trasferita alle sessioni remote.
+Cursor also reads `~/.agents/skills/` and directories compatible with other clients: if you already installed the skill for Codex, check whether it is available before creating another copy with the same name. For Cloud Agents, the documentation describes syncing skills from `~/.cursor/skills/` through **Settings → Agents → Sync Skills for Cloud Agents**; a local installation alone is not transferred to remote sessions.
 
 ### ChatGPT
 
-Quando il client offre gestione e creazione di skill, richiama `@skill-creator` e chiedi:
+When the client offers skill management and creation, invoke `@skill-creator` and ask:
 
-> Crea una skill personale chiamata coding-harness usando la cartella coding-harness di https://github.com/consteuni/agents-platform. Mantieni i riferimenti e i template, il funzionamento solo tramite istruzioni e i principi di ingegneria del software.
+> Create a personal skill named coding-harness from the coding-harness folder at https://github.com/consteuni/agents-platform. Preserve its references, templates, instruction-only operation, and software engineering principles.
 
-Rendi la sorgente accessibile al creator tramite il collegamento GitHub connesso o i file della cartella. Dopo che il creator ha confermato il salvataggio, seleziona la skill con `@`. Per aggiornarla, chiedi allo stesso creator di aggiornare la skill personale esistente dalla repo, preservando eventuali personalizzazioni dichiarate.
+Make the source accessible to the creator through the connected GitHub integration or the folder's files. After the creator confirms saving, select the skill with `@`. To update it, ask the same creator to update the existing personal skill from the repository, preserving any declared customizations.
 
-La presenza di `~/.agents/skills/` sul tuo computer non installa una skill nel tuo account ChatGPT. Questa repo non contiene ancora un pacchetto plugin da installare dal catalogo.
+Having `~/.agents/skills/` on your computer does not install a skill in your ChatGPT account. This repository does not yet contain a plugin package that can be installed from the catalog.
 
-## Aggiornamento
+## Updating
 
-Per un'installazione tramite copia, aggiorna prima la sorgente e poi sostituisci la cartella installata. Il procedimento conserva la vecchia versione fuori dalle directory scandite dai client e impedisce che file rimossi dalla sorgente restino nella nuova copia.
+For a copied installation, update the source first, then replace the installed folder. This procedure preserves the previous version outside client discovery directories and prevents files removed from the source from remaining in the new copy.
 
-Scegli **una sola** destinazione per il client che vuoi aggiornare:
+Choose **one** destination for the client you want to update:
 
 ```bash
 # Codex
 skill_dir="$HOME/.agents/skills/coding-harness"
 
-# Claude Code: usa questa riga al posto della precedente
+# Claude Code: use this line instead of the one above
 # skill_dir="$HOME/.claude/skills/coding-harness"
 
-# Cursor: usa questa riga al posto della precedente
+# Cursor: use this line instead of the one above
 # skill_dir="$HOME/.cursor/skills/coding-harness"
 ```
 
-Poi esegui:
+Then run:
 
 ```bash
 (
@@ -134,13 +134,13 @@ Poi esegui:
   repo_dir="$HOME/codici/agents-platform"
   test "$(git -C "$repo_dir" branch --show-current)" = main
   if [ -n "$(git -C "$repo_dir" status --porcelain)" ]; then
-    echo "La sorgente contiene modifiche locali: gestiscile prima dell'aggiornamento."
+    echo "The source contains local changes: resolve them before updating."
     exit 1
   fi
   git -C "$repo_dir" pull --ff-only
   test -f "$repo_dir/coding-harness/SKILL.md"
   if [ -L "$skill_dir" ]; then
-    echo "La skill è un collegamento: usa la procedura per symlink."
+    echo "The skill is a symlink: use the symlink procedure."
     exit 1
   fi
   backup_root="$HOME/.local/share/coding-harness/backups"
@@ -151,24 +151,24 @@ Poi esegui:
   fi
   mkdir -p "$skill_dir"
   cp -R "$repo_dir/coding-harness/." "$skill_dir/"
-  echo "Skill aggiornata. Backup: $backup_dir"
+  echo "Skill updated. Backup: $backup_dir"
 )
 ```
 
-Il controllo iniziale interrompe l'aggiornamento se la sorgente ha modifiche locali, si trova su un altro branch o il pull non può avanzare senza merge. Se la cartella deriva da un archivio ZIP, scarica una nuova versione della sorgente e applica la parte di backup e copia: `git pull` richiede un clone Git.
+The initial checks stop the update if the source has local changes, is on another branch, or cannot advance without a merge. If the folder came from a ZIP archive, download a fresh source version and apply the backup and copy steps: `git pull` requires a Git clone.
 
-Se avevi personalizzato la skill installata, confronta il backup con la nuova versione e riporta soltanto le modifiche desiderate. Verifica poi il richiamo nel client; apri una nuova sessione se continua a usare la versione precedente. Ripeti l'aggiornamento per ogni copia separata che utilizzi.
+If you customized the installed skill, compare the backup with the new version and reapply only the changes you want. Check invocation in the client afterward; open a new session if it continues to use the previous version. Repeat the update for each separate copy you use.
 
-### Alternativa: collegamento alla sorgente
+### Alternative: Link to the Source
 
-Codex e Claude Code documentano il supporto a cartelle skill collegate tramite symlink. Su Linux/macOS/WSL, per una destinazione ancora inesistente puoi evitare una seconda copia:
+Codex and Claude Code document support for symlinked skill folders. On Linux, macOS, or WSL, you can avoid a second copy when the destination does not exist:
 
 ```bash
 (
   set -eu
   repo_dir="$HOME/codici/agents-platform"
   skill_root="$HOME/.agents/skills"
-  # Per Claude Code: skill_root="$HOME/.claude/skills"
+  # For Claude Code: skill_root="$HOME/.claude/skills"
   test -f "$repo_dir/coding-harness/SKILL.md"
   test ! -e "$skill_root/coding-harness"
   test ! -L "$skill_root/coding-harness"
@@ -177,29 +177,29 @@ Codex e Claude Code documentano il supporto a cartelle skill collegate tramite s
 )
 ```
 
-Se hai già una copia, spostala prima fuori dalla directory skill e conservala; non creare un collegamento dentro la copia esistente. Con un symlink, aggiorni soltanto la repo con `git pull --ff-only` dopo aver verificato branch e modifiche locali. Il collegamento vedrà la nuova sorgente senza ricopiare file. Non spostare o eliminare la repo; gli eventuali cambi locali alla sorgente diventano immediatamente visibili alla skill.
+If you already have a copy, move it outside the skill directory and preserve it first; do not create a link inside the existing copy. With a symlink, update only the repository using `git pull --ff-only` after checking the branch and local changes. The link sees the updated source without copying files again. Keep the source repository at the same location; local source changes become immediately visible to the skill.
 
-## Installazione per un solo progetto
+## Install for One Project
 
-Usa queste destinazioni nel progetto al posto della cartella personale:
+Use these destinations inside the project instead of the personal folder:
 
-| Client | Destinazione nel progetto |
+| Client | Project destination |
 | --- | --- |
 | Codex | `.agents/skills/coding-harness/` |
 | Claude Code | `.claude/skills/coding-harness/` |
-| Cursor | `.cursor/skills/coding-harness/` oppure `.agents/skills/coding-harness/` |
+| Cursor | `.cursor/skills/coding-harness/` or `.agents/skills/coding-harness/` |
 
-Copia l'intera cartella e condividila con il progetto se serve al team. Per le sessioni remote, rendila disponibile nell'ambiente remoto o nella repo secondo il client. Non dare per scontato che una cartella presente sul computer locale esista anche lì.
+Copy the entire folder and share it with the project when the team needs it. For remote sessions, make it available in the remote environment or repository according to the client. Do not assume a folder on your local computer also exists there.
 
-## Se non la trovi
+## If the Skill Does Not Appear
 
-1. Controlla che il percorso termini con `coding-harness/SKILL.md`, senza un secondo livello `coding-harness/coding-harness/`.
-2. Controlla che l'inizio del file contenga il frontmatter con `name: coding-harness` e `description`.
-3. Verifica che `references/`, `assets/` e `agents/` siano state copiate insieme al file.
-4. Cerca la skill nel menu del client e prova il richiamo esplicito. Se necessario, riapri il client.
-5. Controlla che non sia disabilitata nelle impostazioni e che non ci siano copie con lo stesso nome in directory diverse.
+1. Check that the path ends in `coding-harness/SKILL.md`, without an extra `coding-harness/coding-harness/` level.
+2. Check that the file starts with frontmatter containing `name: coding-harness` and `description`.
+3. Verify that `references/`, `assets/`, and `agents/` were copied with the file.
+4. Find the skill in the client's menu and try explicit invocation. Reopen the client if needed.
+5. Check that it is enabled in settings and that multiple directories do not contain copies with the same name.
 
-Per Codex, questi controlli si possono eseguire dal terminale:
+For Codex, run these checks in the terminal:
 
 ```bash
 codex --version
@@ -207,31 +207,31 @@ ls "$HOME/.agents/skills/coding-harness/SKILL.md"
 sed -n '1,6p' "$HOME/.agents/skills/coding-harness/SKILL.md"
 ```
 
-## Risorse e utilizzo
+## Resources and Usage
 
-| Risorsa | Scopo |
+| Resource | Purpose |
 | --- | --- |
-| [SKILL.md](coding-harness/SKILL.md) | Istruzioni principali e scelta del flusso minimo |
-| [ENGINEERING.md](coding-harness/references/ENGINEERING.md) | SOLID, KISS, DRY, YAGNI, contratti, sicurezza e testabilità |
-| [WORKFLOW.md](coding-harness/references/WORKFLOW.md) | Ricerca, debugging, verifiche, review e checkpoint |
-| [STATE.md](coding-harness/references/STATE.md) | Campi dello stato, evidenze e condizioni di verifica |
-| [PROJECT_STATE.md](coding-harness/assets/templates/PROJECT_STATE.md) | Checkpoint compatto in Markdown |
-| [PROJECT_STATE.json](coding-harness/assets/templates/PROJECT_STATE.json) | Checkpoint strutturato opzionale |
-| [PROJECT_RECORD.md](coding-harness/assets/templates/PROJECT_RECORD.md) | Piani, decisioni ed evidenze più estese |
-| [openai.yaml](coding-harness/agents/openai.yaml) | Metadati e prompt iniziale per client compatibili |
+| [SKILL.md](coding-harness/SKILL.md) | Main instructions and selection of the smallest workflow |
+| [ENGINEERING.md](coding-harness/references/ENGINEERING.md) | SOLID, KISS, DRY, YAGNI, contracts, security, and testability |
+| [WORKFLOW.md](coding-harness/references/WORKFLOW.md) | Retrieval, debugging, verification, review, and checkpoints |
+| [STATE.md](coding-harness/references/STATE.md) | State fields, evidence, and verification conditions |
+| [PROJECT_STATE.md](coding-harness/assets/templates/PROJECT_STATE.md) | Compact Markdown checkpoint |
+| [PROJECT_STATE.json](coding-harness/assets/templates/PROJECT_STATE.json) | Optional structured checkpoint |
+| [PROJECT_RECORD.md](coding-harness/assets/templates/PROJECT_RECORD.md) | Longer plans, decisions, and evidence |
+| [openai.yaml](coding-harness/agents/openai.yaml) | Metadata and starter prompt for compatible clients |
 
-Per lavori continuativi, usa le convenzioni di stato del progetto oppure scegli un file canonico in `agent-state/`, in Markdown o JSON. Le piccole modifiche e le review non richiedono nuovi file di pianificazione. Lo stato di manutenzione di questa sorgente rimane in [REPOSITORY_STATE.md](REPOSITORY_STATE.md) e non va copiato nei progetti.
+For ongoing work, reuse project state conventions or choose one canonical Markdown or JSON file in `agent-state/`. Small changes and reviews require no new planning files. Maintenance state for this source remains in [REPOSITORY_STATE.md](REPOSITORY_STATE.md) and must not be copied into target projects.
 
-In un ambiente senza caricatore di skill, puoi usare [PROJECT_START_PROMPT.md](PROJECT_START_PROMPT.md) e chiedere all'agente di leggere la cartella sorgente. Le istruzioni guidano il comportamento; permessi reali e protezioni della repo determinano quali operazioni sono disponibili.
+In an environment without a skill loader, use [PROJECT_START_PROMPT.md](PROJECT_START_PROMPT.md) and ask the agent to read the source folder. Instructions guide behavior; actual permissions and repository protections determine which operations are available.
 
-## Ispirazione e documentazione
+## Inspiration and Documentation
 
-Le migliorie del flusso prendono spunto da [ECC di Affaan Mustafa](https://github.com/affaan-m/ECC), revisione `ef648e01899ba3e8dc6371642deaaf64b4477775`: ricerca progressiva del contesto, test significativi, verifiche esplicite e checkpoint prima dei cambi di fase. Le istruzioni sono scritte per questa skill; non includono codice eseguibile o testi sostanziali copiati da ECC.
+Workflow improvements draw on [ECC by Affaan Mustafa](https://github.com/affaan-m/ECC), revision `ef648e01899ba3e8dc6371642deaaf64b4477775`: progressive context retrieval, meaningful tests, explicit verification, and checkpoints before phase transitions. The instructions are written for this skill; they include no executable code or substantial text copied from ECC.
 
-Procedure dei client verificate il 7 ottobre 2026 sulle documentazioni ufficiali:
+Client procedures were checked on October 7, 2026 against official documentation:
 
 - [OpenAI: Build skills](https://learn.chatgpt.com/docs/build-skills)
 - [Claude Code: Skills](https://code.claude.com/docs/en/skills)
 - [Cursor: Agent Skills](https://cursor.com/docs/skills)
 
-Il vecchio kit è stato rimosso dalla sorgente; le versioni precedenti restano nella cronologia Git.
+The previous kit was removed from the source; earlier versions remain in Git history.

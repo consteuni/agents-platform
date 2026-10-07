@@ -1,7 +1,7 @@
 interface:
   display_name: "Coding Harness"
-  short_description: "Sviluppo guidato, verifiche e continuità tra sessioni"
-  default_prompt: "Usa $coding-harness per questo lavoro di sviluppo: segui le convenzioni del progetto, verifica il comportamento e registra evidenze e limiti."
+  short_description: "Guided development, verification, and project continuity"
+  default_prompt: "Use $coding-harness for this development task: follow project conventions, verify behavior, and record evidence and limitations."
 
 policy:
   allow_implicit_invocation: true

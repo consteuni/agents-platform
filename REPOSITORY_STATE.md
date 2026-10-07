@@ -1,49 +1,47 @@
 # Repository State
 
-Updated: 2026-10-07T08:22:21.683Z
+Updated: 2026-10-07T08:28:51.353Z
 Branch: main
 Access context: connected GitHub repository; local checkout status unavailable.
 
 ## Current Objective
 
-Maintain an instruction-only development skill with proportionate engineering guidance, truthful verification, reusable handoffs, and documented client installation.
+Maintain an instruction-only development skill with proportionate engineering guidance, truthful verification, reusable handoffs, and English documentation for client installation.
 
 ## Current Task and Status
 
-TASK-012 — verified
+TASK-013 — verified
 
-Requirement: accept modest additional structure where it makes the skill more useful, and document installation, update, and invocation according to the client.
+Requirement: make all repository documentation, examples, command messages, and skill metadata English.
 
 ## Completed Changes
 
-- Add a blank optional JSON checkpoint and a state contract with criterion-level evidence, scope, limitations, invalidation, and verification conditions.
-- Preserve a single canonical project checkpoint, existing conventions, and the small-change workflow; Markdown remains available.
-- Add optional OpenAI selector metadata, an invocation prompt, and implicit invocation policy without tool dependencies.
-- Expand the source README in Italian with Codex CLI/IDE, Claude Code, Cursor, and ChatGPT procedures, project scope, updates with backup, symlink alternatives, and discovery troubleshooting.
-- Keep eight reusable skill files and a concise entry point. Add no runtime, executable helpers, hooks, new stack, or mandatory delegation.
-- Preserve the ECC refinements delivered in [the previous source update](https://github.com/consteuni/agents-platform/commit/41414162d9fc0e9489042eb517784ba62c0b9dd2).
+- Translate the complete README, including headings, installation and update instructions, example prompts, shell comments, and command output messages.
+- Translate the skill selector description and starter prompt in agents/openai.yaml.
+- Check all twelve source files for remaining Italian prose; the other skill instructions, references, templates, and project prompts are already English.
+- Preserve the skill name, real filesystem paths, installation commands, backup behavior, implicit invocation policy, and all development guidance.
+- Keep the structured checkpoint and client procedures introduced in [the previous source update](https://github.com/consteuni/agents-platform/commit/97ca74d76a3217420300ca5e1b3df503bdb4d69d).
 
 ## Verification Evidence
 
-| Action | Result | Timestamp | Scope and Limitations |
-| --- | --- | --- | --- |
-| Check document links, heading anchors, whitespace, and package boundaries; parse JSON template and example | PASS | 2026-10-07T08:16:24.387Z | Source structure; instructions cannot enforce future compliance |
-| Parse SKILL frontmatter and OpenAI YAML; check metadata fields, description length, prompt, and policy | PASS | 2026-10-07T08:16:24.387Z | Static metadata; actual local-client discovery not exercised |
-| Independent agent used the candidate skill to produce a JSON checkpoint from supplied order-transaction facts | PASS: blocked, passing unit/diff evidence, required database checks NOT RUN, concrete resume step, no invented verification | 2026-10-07T08:16:49Z | Handoff reasoning from supplied facts; no database integration ran |
-| Check eight Bash blocks and exercise installation for three destination conventions with isolated dummy fixtures | PASS: syntax, full-folder copying, existing-destination preservation, symlink guards | 2026-10-07T08:21:38.597Z | Local command behavior; no real client was installed |
-| Exercise the documented update against an isolated local Git remote and installed fixture | PASS: source advances on main, old copy backed up, obsolete files absent in new copy, dirty source rejected before installation changes | 2026-10-07T08:21:38.597Z | Disposable fixture; user machine and production untouched |
-| Verify client discovery paths and invocation against official OpenAI, Claude Code, and Cursor documentation | PASS | 2026-10-07T08:22:21.683Z | Documentation checked on 2026-10-07; client versions and interfaces can differ |
+| Action | Result | Scope and Limitations |
+| --- | --- | --- |
+| Review all repository text and scan for remaining Italian phrases | PASS | Current source files; existing filesystem names are preserved |
+| Resolve local Markdown links and heading anchors | PASS | All repository documents, including the translated update anchor |
+| Compare all eight README Bash blocks with the previous version, ignoring comments and output messages | PASS: executable instructions unchanged | Translation changes no installation or update behavior |
+| Parse frontmatter and OpenAI YAML; validate metadata fields, description length, invocation prompt, and policy | PASS | Metadata remains compatible with the existing skill |
+| Check shell syntax and trailing whitespace | PASS | Static checks; no client installation performed |
 
-The previous ECC update also passed an independent regression-fix exercise: a failing blank-input test was observed before the minimal fix, followed by three passing configured tests. Those results remain in the preceding commit's repository state.
+Checks completed at 2026-10-07T08:28:51.353Z. The previous commit already exercised the installation, backup, and update procedures with isolated fixtures and forward-tested structured checkpoint behavior. Translation does not change that behavior.
 
 ## Blockers and Limits
 
-None for the source update. A copied personal installation must be updated separately. ChatGPT personal creation and local client installation were not performed here.
+None for the source update. A copied personal installation must be updated separately. Local client installation and ChatGPT personal creation were not performed here.
 
 ## Next Action
 
-Follow the README for the chosen client, update the personal copy, and invoke coding-harness on a real project task. Base future changes on observed outcomes.
+Follow the English README to update the installed copy for the chosen client and invoke coding-harness on a real project task.
 
 ## Authorization
 
-The established repository-update scope and the current requests authorize source changes in consteuni/agents-platform on existing main. No branch changes, history rewriting, personal installation, or deployment elsewhere are included.
+The established repository-update scope and current language instruction authorize source changes in consteuni/agents-platform on existing main. No branch changes, history rewriting, personal installation, or deployment elsewhere are included.
