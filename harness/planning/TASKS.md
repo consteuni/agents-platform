@@ -138,6 +138,29 @@ Requirement: implement the lightweight v0.2 invariants and minimize token usage 
 
 Agent orchestration, workflow DAGs, mandatory language runtimes or databases, agent-specific SDKs, layered configuration systems, custom runtimes, and complex plugin architectures.
 
+## TASK-008 - Software Engineering Requirements
+
+Status: verified
+
+Requirement: make respect for software engineering principles explicit, actionable, and verifiable for every project using this kit.
+
+### Affected Files
+
+- [HARNESS_RULES.md](../HARNESS_RULES.md): canonical principles and engineering completion criteria.
+- Source repository README and startup prompt: references to the canonical requirements.
+- [PLAN.md](PLAN.md), this file, both state files, and [verification/VERIFICATION.md](../verification/VERIFICATION.md): scope, checkpoint, and evidence.
+
+### Acceptance
+
+- Explicit obligations explain all five SOLID principles, KISS, DRY, YAGNI, separation of concerns, cohesion, and coupling.
+- Contracts, data consistency, errors, security, performance constraints, and testability have concrete guidance.
+- Completion criteria require observable behavior, design review, relevant checks, and evidence with limitations.
+- Requirements remain stack-independent, proportionate, and free of speculative architecture; definitions live only in HARNESS_RULES.md.
+- Startup and discovery documents reference those requirements; links, state, task consistency, whitespace, and searched secret patterns pass checks.
+- The optional validator is explicitly distinguished from verification of application design quality.
+
+Out of scope: application code, new tooling, CI enforcement, stack choices, branch changes, and history rewriting. The current request authorizes applying this documentation update to the connected repository's existing main branch through GitHub.
+
 ## Future Tasks
 
 In a derived project, replace the kit tasks with current requirements. For new nontrivial tasks, add an ID, requirement, affected files, acceptance criteria, and exclusions. Record checks using the same ID. A checkpoint is sufficient for small changes; do not duplicate status or next steps here.

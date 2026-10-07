@@ -100,9 +100,22 @@ The machine and human states agree on TASK-007, `verified`, and the executable n
 
 Status: verified.
 
+## TASK-008
+
+| Level | Command or Action | Result | Timestamp | Scope | Status |
+| --- | --- | --- | --- | --- | --- |
+| Targeted | Baseline: `python3 harness/tools/check.py` on the GitHub main snapshot | All five categories passed; 0 warnings and 0 errors | 2026-10-07T06:31:17Z | Existing harness invariants | PASS |
+| Targeted | Post-change: `python3 harness/tools/check.py` | Structure, state, task consistency, links, and searched secret patterns passed; 0 warnings and 0 errors | 2026-10-07T06:33:45Z | Updated harness invariants | PASS |
+| Regression | Python standard-library repository scan and snapshot comparison | All repository links resolve; unique Markdown basenames; human state below 100 lines; no trailing whitespace; changes restricted to task documents | 2026-10-07T06:33:45Z | Repository documentation and unchanged files | PASS |
+| Manual | Review snapshot diffs and TASK-008 acceptance criteria | All five SOLID principles, KISS, DRY, YAGNI, contracts, testability, reliability, security, and completion criteria are explicit; startup and README reference canonical rules | 2026-10-07T06:33:45Z | Engineering requirements and entry points | PASS |
+
+Status: verified. This is a documentation change, so application tests, database migration checks, and performance measurements are not applicable. No application code, runtime dependencies, or validator behavior changed. Document checks do not verify that future implementations follow engineering principles.
+
+Source: the connected GitHub repository's existing main branch, captured at commit `ceaefb8dec8a7261b64440b3eb1520f7d071a981`. No local Git checkout was available; local worktree status could not be checked. The current request authorizes applying these documentation changes through GitHub to existing main. No branch changes, force updates, or history rewriting are needed.
+
 ## Limitations
 
-Pattern searches do not guarantee the absence of every secret. The validator checks consistency and obvious patterns but cannot technically prevent dangerous commands: tool permissions, approvals, and repository protections remain required. No software integrations are tested here. No Git write operations, branch changes, or remote actions have been performed for this work.
+Pattern searches do not guarantee the absence of every secret. The validator checks consistency and obvious patterns but cannot technically prevent dangerous commands: tool permissions, approvals, and repository protections remain required. No software integrations are tested here. The no-Git-write records for TASK-001 through TASK-007 describe those historical tasks; TASK-008 includes the requested repository update through GitHub.
 
 ## In a Derived Project
 

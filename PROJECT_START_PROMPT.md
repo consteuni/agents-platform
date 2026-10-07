@@ -32,6 +32,8 @@ Read [harness/HARNESS_RULES.md](harness/HARNESS_RULES.md) completely and follow 
 - Do not change branches or perform Git write operations without my specific request.
 - Do not choose unspecified technologies without first identifying the choice as blocking.
 - Preserve existing user changes and inspect the repository before editing.
+- Follow the **Software Engineering Requirements** in [harness/HARNESS_RULES.md](harness/HARNESS_RULES.md): apply SOLID, KISS, DRY, YAGNI, separation of concerns, explicit contracts, testability, reliability, and security in proportion to the project.
+- Use the engineering completion criteria during implementation and review; record evidence and significant tradeoffs before declaring the result verified.
 - Minimize token usage by default: search before reading, read only relevant ranges, limit tool output, and avoid repeating unchanged context or completed work.
 - When model selection is available, use the lightest capable model for routine, well-scoped changes and escalate only when complexity or risk requires it.
 - Keep responses and state concise; expand only when uncertainty, risk, or verification requires more context.

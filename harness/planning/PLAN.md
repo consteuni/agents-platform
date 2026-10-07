@@ -2,7 +2,7 @@
 
 ## Goal and Assumptions
 
-Apply the lightweight v0.2 rules while keeping the core fully language-independent: compact state, reproducible validation, and permanent token economy without weakening correctness, Git safety, or portability.
+Make software engineering principles explicit and mandatory for projects using this harness, while preserving the language-independent v0.2 workflow, Git safety, and token economy.
 
 ## Architecture
 
@@ -10,10 +10,10 @@ Keep `PROJECT_STATE.md` as the human handoff and `state.json` as the minimal ope
 
 ## Kit Tasks
 
-1. Add and synchronize compact Markdown and JSON state contracts.
-2. Add token economy, verification evidence and levels, blockers, stop conditions, and failure escalation rules.
-3. Add known-failure tracking and an optional reference validator for structure, state, tasks, links, and safety.
-4. Run equivalent targeted and regression checks with available tools; record actual evidence without Git write operations.
+1. Inspect the current rules and run the optional validator as a baseline.
+2. Define actionable engineering requirements and completion criteria in HARNESS_RULES.md; reference them from the README and startup prompt.
+3. Review the changed documentation, validate links and state, and record TASK-008 evidence and a synchronized checkpoint.
+4. Apply the requested documentation update to the connected repository's existing main branch through GitHub, preserving unrelated files and history.
 
 ## Completion Criteria
 
@@ -29,6 +29,8 @@ Keep `PROJECT_STATE.md` as the human handoff and `state.json` as the minimal ope
 - Every Markdown basename is unique and all renamed-document links resolve.
 - Token usage is minimized by default without skipping required context, checks, or safety steps.
 - Core validation does not require a language runtime; `tools/check.py` is optional when Python 3 is available.
+- TASK-008 explicitly covers SOLID, KISS, DRY, YAGNI, contracts, testability, reliability, security, and maintainability with observable acceptance criteria.
+- Engineering requirements have one canonical definition, apply proportionally to the change, and do not prescribe a stack or speculative abstractions.
 
 ## In a Derived Project
 

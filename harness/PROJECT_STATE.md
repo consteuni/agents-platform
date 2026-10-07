@@ -1,14 +1,14 @@
 # Project State
 
-Updated: 2026-10-06 | Branch: main | Worktree dirty: true
+Updated: 2026-10-07 | Branch: main | Source: GitHub snapshot; local Git worktree unavailable
 
 ## Current Objective
 
-Apply the lightweight v0.2 harness rules: compact machine-readable state, executable validation, explicit verification evidence, and token-efficient operation.
+Make software engineering principles mandatory, actionable, and verifiable without imposing technologies or speculative architecture.
 
 ## Current Task
 
-TASK-007
+TASK-008
 
 ## Status
 
@@ -16,14 +16,13 @@ verified
 
 ## Last Completed Task
 
-TASK-007
+TASK-008
 
 ## Completed
 
-- Baseline verification, explicit task statuses, and operational checkpoints are documented.
-- Markdown filenames are unique; kit entry points are `HARNESS_RULES.md` and `HARNESS_GUIDE.md`.
-- `state.json` and known-failure tracking are runtime-independent; the Python validator is an optional reference tool.
-- Token economy, verification levels, stop conditions, and failure escalation are defined.
+- Added canonical engineering requirements and completion criteria to HARNESS_RULES.md.
+- Linked them from the source README and startup prompt.
+- Preserved language independence, Git safety, token economy, and the optional validator.
 
 ## Known Blockers
 
@@ -35,19 +34,18 @@ Copy harness/ and PROJECT_START_PROMPT.md into the target repository and initial
 
 ## Important Context
 
-- `state.json` is the minimal operational state; this file is the compact human-readable handoff.
-- Detailed requirements, decisions, and evidence stay in their canonical documents.
-- Token savings must not weaken correctness, safety, or required verification.
-- The harness must work without requiring any programming-language runtime; optional tools may accelerate equivalent checks.
+- Engineering principles require proportional application and evidence; document checks do not certify design quality.
+- This request authorizes the documentation update in consteuni/agents-platform on existing main through GitHub.
+- No branch changes or history rewriting are needed.
 
 ## Verification
 
-TASK-007 is verified; validator and documentation regression checks pass. Evidence is in `verification/VERIFICATION.md`.
+Baseline and post-change validator passed with 0 warnings and 0 errors. Repository links, whitespace, unique names, requirements, and change scope passed checks. Evidence is in verification/VERIFICATION.md.
 
 ## Last Checkpoint
 
-2026-10-06T12:14:46+02:00
+2026-10-07T06:33:45Z
 
 ## Resume
 
-Run `git status --short --branch`, read `state.json`, then execute its `next_action`.
+Read state.json and execute its next_action; inspect local Git status if working in a checkout.
