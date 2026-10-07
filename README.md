@@ -240,7 +240,7 @@ Startup preserves existing files, user notes, progress, and evidence. If a perso
 
 All default new files are inside `harness/`. Root instructions and application configuration remain unchanged. Startup writes through authorized agent tools; it is not an executable hook and creates no dependencies, chosen stack, Git repository, branch, commit, or global installation. Missing access or conflicting paths are reported.
 
-Reviews, explanations, and default PROJECT MAP/LEARN requests stay read-only unless initialization is also requested. Implicit selection for a small change does not create a kit. Without a development objective, state remains pending and asks for the next task instead of inventing progress or application verification.
+Reviews, explanations, HARNESS STATUS, CHANGE IMPACT, and default PROJECT MAP/LEARN requests stay read-only unless initialization is also requested. RESUME uses existing context without triggering startup. Implicit selection for a small change does not create a kit. Without a development objective, state remains pending and asks for the next task instead of inventing progress or application verification.
 
 ### Use or Adopt the Kit
 
@@ -253,9 +253,36 @@ Use the canonical project documents listed in harness/README.md for this task.
 
 The nested instruction file does not automatically govern application files outside its folder, and the snapshot does not register client commands. Explicit reading lets the agent use the kit without a global installation, subject to current project instructions.
 
-To adopt it in another repo, copy the reusable `harness/skill/` snapshot and request START there to generate fresh project context. If you move the entire folder, reconcile existing project-specific state, map, notes, and evidence before resuming; do not inherit verified status or permissions. Existing snapshot files are preserved; refresh them only on an explicit request.
+To adopt it in another repo, copy the reusable `harness/skill/` snapshot and request START there to generate fresh project context. If you move the entire folder, reconcile existing project-specific state, map, notes, and evidence before resuming; do not inherit verified status or permissions. Existing snapshot files are preserved; refresh them only on an explicit request with an identified source. The [refresh procedure](coding-harness/references/CONTINUITY.md#explicit-snapshot-refresh) preserves customizations and a backup before replacement. Updating the global installation does not update this project-local copy.
 
 In Claude Code, use `/coding-harness START`; in Cursor or ChatGPT select the skill and request START. See [Startup](coding-harness/references/STARTUP.md) for the complete workflow.
+
+## Check, Resume, and Assess Changes
+
+| Request | Result |
+| --- | --- |
+| `HARNESS STATUS` | Read-only audit of document pointers, canonical state, required check gaps, saved-map coverage, and the reusable snapshot |
+| `RESUME` | Reconcile recorded work with current sources, preserve valid evidence, and continue a clearly identified unfinished task |
+| `CHANGE IMPACT <proposed change>` | Read-only trace of affected contracts, direct consumers, likely edit locations, and existing checks |
+
+For example, in Codex:
+
+```text
+$coding-harness HARNESS STATUS
+$coding-harness RESUME
+$coding-harness CHANGE IMPACT Add cancellation to the order workflow
+$coding-harness CHANGE IMPACT LEARN Explain what adding cancellation would affect
+```
+
+In other clients, select coding-harness using the client's invocation above and include the same request. These phrases are instructions, not registered commands.
+
+STATUS reports findings and next actions without repairing files, initializing the kit, running application checks, or refreshing the snapshot. Existing external canonical documents count when correctly linked. Kit readiness is separate from application verification. Snapshot differences are reported against an available source; without one, version alignment remains unknown.
+
+RESUME checks the current request, branch/diff, criteria, evidence, blockers, and next step before continuing. It preserves historical results and invalidates affected current evidence when relevant behavior or requirements changed. Unrelated edits do not reset all progress. A missing, imported, ambiguous, or completed objective is resolved before implementation; a saved action does not grant Git, deployment, destructive, or service permissions. Use STATUS when you only want an assessment.
+
+CHANGE IMPACT helps choose where to start before changing a large project. It confirms relevant map claims against source, distinguishes likely edit locations from consumers needing review, and names useful existing checks without running them. Add LEARN to explain unfamiliar concepts. It does not initialize a kit, implement the proposal, or claim exhaustive impact.
+
+See [Continuity](coding-harness/references/CONTINUITY.md) and [Change Impact](coding-harness/references/PROJECT_MAP.md#change-impact). No new state format or required document is introduced.
 
 ## Optional Project Map
 
@@ -267,7 +294,7 @@ When a project becomes difficult to follow, invoke the skill with `PROJECT MAP`.
 | `PROJECT MAP LEARN` | Beginner-oriented map that explains an unfamiliar language/framework using real project code |
 | `PROJECT MAP <area or question>` | Focused map of a subsystem, flow, or dependency |
 | `PROJECT MAP SAVE` | Save a map in existing project documentation, or `docs/PROJECT_MAP.md` |
-| `PROJECT MAP UPDATE` | Refresh an existing saved map and preserve user notes |
+| `PROJECT MAP UPDATE` | Refresh an existing saved map and preserve user notes; retain earlier inspection context for untouched areas |
 
 For example, in Codex:
 
@@ -285,7 +312,7 @@ For an unfamiliar stack, LEARN distinguishes the language from the framework, ex
 
 Mapping activates only when requested. It starts with a compact overview for large repositories and follows source connections instead of reading every file. It can include a Mermaid diagram when useful. It explains where to start a change and which direct consumers and tests to inspect.
 
-The default writes no files and runs no applications, tests, or integrations. SAVE and UPDATE authorize map documentation only. Static source observations do not prove that a service is running or that an integration works. Unknowns and coverage limits remain explicit. Architecture maps complement project checkpoints; they do not replace task state or mark unfinished work verified.
+The default writes no files and runs no applications, tests, or integrations. SAVE and UPDATE authorize map documentation only. Static source observations do not prove that a service is running or that an integration works. Unknowns and coverage limits remain explicit. Architecture maps complement project checkpoints; they do not replace task state or mark unfinished work verified. Saved maps track inspection context by area: a focused refresh cannot make untouched sections appear current. Relevant changes needing review and unavailable baselines remain visible; elapsed time alone does not invalidate source observations.
 
 Keep generated maps outside the reusable skill. See [Project Mapping](coding-harness/references/PROJECT_MAP.md) for the workflow and [Map Template](coding-harness/assets/templates/PROJECT_MAP.md) for saved output.
 
@@ -293,6 +320,7 @@ Keep generated maps outside the reusable skill. See [Project Mapping](coding-har
 
 | Resource | Purpose |
 | --- | --- |
+| [Continuity](coding-harness/references/CONTINUITY.md) | Read-only kit health, reconciled resume, and explicit snapshot refresh |
 | [Startup](coding-harness/references/STARTUP.md) | Prepare or reuse the complete project-local harness |
 | [Kit Index](coding-harness/assets/templates/PROJECT_HARNESS_README.md) | Project harness usage and document pointers |
 | [Agent Guidance](coding-harness/assets/templates/PROJECT_AGENT_GUIDANCE.md) | Instructions inside the project harness |

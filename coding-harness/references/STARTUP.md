@@ -10,7 +10,8 @@ A bare explicit invocation of coding-harness, `START`, or the first explicit dev
 | First explicit development invocation | Prepare missing kit files before development; reuse an existing kit. |
 | `START JSON` | Use JSON instead of Markdown for new canonical state; preserve an existing convention. |
 | `START LEARN` or `START MAP LEARN` | Prepare the same kit and explain unfamiliar technologies in its map. |
-| Review, explanation, or default `PROJECT MAP` / `PROJECT MAP LEARN` | Remain read-only; do not initialize the kit. |
+| Review, explanation, HARNESS STATUS, CHANGE IMPACT, or default `PROJECT MAP` / `PROJECT MAP LEARN` | Remain read-only; do not initialize the kit. |
+| RESUME | Use existing context through [Continuity](CONTINUITY.md); do not initialize a kit automatically. |
 | Implicit selection for a small change | Use the smallest workflow; do not initialize merely because the skill was selected. |
 
 START includes authorization for project-kit files and its saved map only. It does not authorize application changes, root instruction/configuration edits, Git writes, execution, or external services. These phrases are prompt instructions, not client commands or startup hooks.
@@ -35,7 +36,7 @@ START includes authorization for project-kit files and its saved map only. It do
 
 For START JSON with no state convention, create `harness/PROJECT_STATE.json` from [JSON State](../assets/templates/PROJECT_STATE.json) instead of Markdown and follow [State Contract](STATE.md). Do not create both by default. Existing equivalents satisfy the kit; list which are reused. If an existing harness README contains user notes but lacks kit navigation, preserve it and place the missing index in `harness/INDEX.md`; reuse that index on later startup.
 
-Copy the complete reusable skill package into a missing `harness/skill/`, preserving relative references and templates. Copy no source-repository maintenance state, Git metadata, credentials, caches, unrelated files, or user-home paths. This snapshot allows explicit use in a repo without a global installation; it does not install or activate itself. Keep project state outside that snapshot. If a snapshot already exists, inspect and preserve it; report incomplete/conflicting files rather than merging over personal edits. Refreshing it requires an explicit request.
+Copy the complete reusable skill package into a missing `harness/skill/`, preserving relative references and templates. Copy no source-repository maintenance state, Git metadata, credentials, caches, unrelated files, or user-home paths. This snapshot allows explicit use in a repo without a global installation; it does not install or activate itself. Keep project state outside that snapshot. If a snapshot already exists, inspect and preserve it; report incomplete/conflicting files rather than merging over personal edits. Refreshing it requires an explicit request and the preservation procedure in [Continuity](CONTINUITY.md#explicit-snapshot-refresh).
 
 Populate newly created project documents with current facts, replacing template placeholders. Use a supplied development objective and at most five actionable steps. Without a task, record `pending`, the absence of an objective, observed context, and a next action to obtain it; leave acceptance criteria unset until a task exists. Never invent a feature, stack, architecture, test result, or copied source task. Setup completion does not mean application verification.
 

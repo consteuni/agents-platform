@@ -94,6 +94,6 @@ Do not replace NOT RUN with PASS because code looks plausible. A checkpoint with
 
 ## Resume and Migrate
 
-On resume, read the current request and project instructions, inspect the actual branch and changes, then reconcile the checkpoint with current facts. A checkpoint records context; it does not grant Git, deployment, data deletion, or external-service permissions.
+On resume, read the current request and project instructions, inspect the actual branch and changes, then reconcile the checkpoint with current facts. A checkpoint records context; it does not grant Git, deployment, data deletion, or external-service permissions. For explicit RESUME or a read-only HARNESS STATUS audit, use [Continuity](CONTINUITY.md). Preserve historical evidence; invalidate only affected current claims and never label a saved result as a new check.
 
 When migration is requested, transfer current facts without deleting the original automatically. Name the canonical destination, preserve unresolved checks and limitations, and avoid maintaining two independent copies. Do not inherit this source repository's tasks, evidence, or technology choices.

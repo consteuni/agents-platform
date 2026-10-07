@@ -1,7 +1,7 @@
 # Project Map
 
 Scope: [system overview or named subsystem]
-Inspected at: [actual ISO 8601 timestamp]
+Latest inspection: [actual ISO 8601 timestamp and area inspected]
 Revision: [inspected revision or unavailable]
 Working tree / access: [relevant local changes or access limitations]
 Validation: [source inspection performed; runtime checks performed or NOT RUN]
@@ -55,6 +55,14 @@ Reading order: [entry point → next component → result, using actual paths an
 | Goal or area | Starting point | Direct consumers / contracts to inspect | Relevant existing checks |
 | --- | --- | --- | --- |
 | [likely change] | [relative path and symbol] | [observed consumers or unknown] | [test locations; do not imply they ran] |
+
+## Inspection Coverage
+
+| Area / claims | Supporting source paths | Last inspected context | Source freshness and limits |
+| --- | --- | --- | --- |
+| [mapped area] | [relative paths or symbols] | [actual timestamp, revision and relevant working-tree context, or unavailable] | [RECHECKED / NEEDS REVIEW / UNKNOWN with reason; not runtime verification] |
+
+[For a focused refresh, retain each untouched area's earlier context. Do not stamp the entire map as rechecked. Remove this instruction before saving.]
 
 ## Coverage and Open Questions
 

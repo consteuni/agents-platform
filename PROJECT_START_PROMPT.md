@@ -6,6 +6,8 @@ Read [coding-harness/SKILL.md](coding-harness/SKILL.md) and follow its workflow 
 
 Initialize or reuse the complete harness/ kit through the skill's START workflow before development: index, local guidance, canonical state, plan/decision/verification record, source-backed project map, and a reusable local skill copy. Preserve existing notes and conventions. Keep default writes below harness/ and create only missing equivalents. Add LEARN for unfamiliar-stack explanations.
 
+Use HARNESS STATUS for a read-only kit audit, RESUME to reconcile existing work before continuing, or CHANGE IMPACT followed by a proposal for read-only impact analysis. These requests do not trigger startup; read-only requests create no files.
+
 ## Task
 
 - Goal and first useful workflow: [what should work]

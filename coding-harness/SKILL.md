@@ -1,6 +1,6 @@
 ---
 name: coding-harness
-description: "Guide an agent through software development with proportionate planning, engineering principles, evidence-based verification, and project continuity. Use for initializing a complete project-local harness on explicit startup, implementing features, fixing bugs, reviewing or refactoring code, starting a software project, resuming unfinished development, or mapping project technologies, components, and connections on request, including explaining an unfamiliar stack. Follow the existing project stack and conventions."
+description: "Guide an agent through software development with proportionate planning, engineering principles, evidence-based verification, and project continuity. Use for initializing a complete project-local harness on explicit startup, implementing features, fixing bugs, reviewing or refactoring code, starting a software project, resuming unfinished development, checking project-harness health, assessing a proposed change's impact, or mapping project technologies, components, and connections on request, including explaining an unfamiliar stack. Follow the existing project stack and conventions."
 ---
 
 # Coding Harness
@@ -19,13 +19,15 @@ Act as a senior developer helping the user produce working, maintainable code. K
 
 ## Startup Routing
 
-For a bare explicit invocation, `START`, or a first explicit development invocation without a kit, read [Startup](references/STARTUP.md) and prepare the complete `harness/` folder: index, local guidance, canonical state, record, source-backed map, and reusable skill snapshot. Preserve existing files and equivalents. `START JSON` selects new JSON state; `START LEARN` adds beginner explanations. Review/explanation and default map requests stay read-only; implicit selection for a small fix does not trigger setup.
+For a bare explicit invocation, `START`, or a first explicit development invocation without a kit, read [Startup](references/STARTUP.md) and prepare the complete `harness/` folder: index, local guidance, canonical state, record, source-backed map, and reusable skill snapshot. Preserve existing files and equivalents. `START JSON` selects new JSON state; `START LEARN` adds beginner explanations. Review/explanation, HARNESS STATUS, CHANGE IMPACT, and default map requests stay read-only; RESUME uses existing context without startup. Implicit selection for a small fix does not trigger setup.
 
 ## Choose the Smallest Workflow
 
 | Situation | Action |
 | --- | --- |
 | Explicit startup / first development invocation | Create/reuse the complete project-local kit through [Startup](references/STARTUP.md); preserve notes and established state conventions. |
+| Harness health / resumed work | Read [Continuity](references/CONTINUITY.md). HARNESS STATUS audits without writes; RESUME reconciles saved facts before continuing a valid unfinished task. |
+| Proposed change impact | Read the Change Impact section in [Project Mapping](references/PROJECT_MAP.md#change-impact). Trace affected contracts, direct consumers, and existing checks without editing or executing. |
 | Requested project map or architecture overview | Read [Project Mapping](references/PROJECT_MAP.md). Explain technologies, components, connections, current work, and source evidence. Keep the default read-only; save or refresh documentation only when requested. |
 | Read-only review or explanation | Inspect relevant sources and report evidenced findings; for code review, use the Review Findings section in [Workflow](references/WORKFLOW.md). Create no project state or planning files. |
 | Small, localized change | Inspect the affected behavior, edit, run the nearest relevant check, and report the result. Use existing state if continuity needs an update; require no new planning files. |
@@ -44,11 +46,15 @@ Judge complexity by behavior and risk, not line count: data migrations, authoriz
 5. Run relevant configured project checks and inspect the diff, including new files. Record PASS, FAIL, NOT RUN, or N/A with evidence and scope; distinguish pre-existing failures and simulated integrations. Follow the Completion Gate in [Workflow](references/WORKFLOW.md).
 6. Finish when acceptance criteria are satisfied. Report the result, relevant checks and limitations, and any unresolved blocker concisely.
 
-For review-only requests, execute inspection and reporting steps; do not implement findings unless asked. For a project map, use the mapping reference's inspection workflow instead of implementation and test steps.
+For review-only requests, execute inspection and reporting steps; do not implement findings unless asked. For a project map, CHANGE IMPACT, or HARNESS STATUS, use the corresponding read-only inspection workflow instead of implementation and test steps.
 
 ## Optional Project Map
 
 Run mapping only on an explicit request such as `PROJECT MAP` or a natural-language architecture question. Accept a named area for focused inspection, `PROJECT MAP LEARN` for an unfamiliar stack, `PROJECT MAP SAVE` to save documentation, and `PROJECT MAP UPDATE` to refresh an existing saved map. Read [Project Mapping](references/PROJECT_MAP.md); use [Map Template](assets/templates/PROJECT_MAP.md) only for requested saved output. These are prompt instructions, not registered client commands.
+
+## Health and Resume
+
+Request `HARNESS STATUS` to inspect kit completeness, canonical state, map freshness, and snapshot differences without repairs. Request `RESUME` to reconcile saved work with actual sources and continue a clear unfinished objective. Read [Continuity](references/CONTINUITY.md), including its safe procedure when a snapshot refresh is explicitly requested. Preserve historical evidence and unrelated work.
 
 ## Project Continuity
 

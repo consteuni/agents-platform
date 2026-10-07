@@ -22,7 +22,9 @@ With coding-harness installed, invoke it for the task. To use this kit without a
 
 These are file-reading instructions, not automatically registered client commands. The instruction file inside this folder does not automatically apply to source files elsewhere in the repository.
 
-Request PROJECT MAP to inspect the architecture, PROJECT MAP LEARN for unfamiliar technologies, or PROJECT MAP UPDATE to refresh the saved map. Keep project facts outside the reusable skill snapshot.
+Request HARNESS STATUS for a read-only kit audit, RESUME to reconcile and continue unfinished work, or CHANGE IMPACT followed by a proposed change to trace its affected contracts before implementation. Request PROJECT MAP to inspect the architecture, PROJECT MAP LEARN for unfamiliar technologies, or PROJECT MAP UPDATE to refresh the saved map. A focused update rechecks only its named area. Keep project facts outside the reusable skill snapshot.
+
+START preserves an existing snapshot; refreshing it requires an explicit request with an identified source and preservation of customizations and the previous copy.
 
 ## Portability and Limits
 

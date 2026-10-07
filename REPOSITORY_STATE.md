@@ -1,53 +1,54 @@
 # Repository State
 
-Updated: 2026-10-07T14:09:56.339Z
+Updated: 2026-10-07T17:40:39.281Z
 Branch context: existing source branch; inspect the actual ref before resuming maintenance.
 Access context: connected GitHub repository; local checkout status unavailable.
 
 ## Current Objective
 
-Maintain an instruction-only development skill with anonymous English guidance, truthful verification, optional project orientation, and a complete reusable project-local harness.
+Maintain an instruction-only development skill with anonymous English guidance, proportionate engineering, truthful verification, project orientation, and a complete portable project-local harness.
 
 ## Current Task and Status
 
-TASK-016 — verified
+TASK-017 — verified
 
-Requirement: explicitly launching the skill should prepare the complete support kit under harness/, allowing adoption in other repositories while preserving existing work.
+Requirement: improve the skill's everyday use in large or unfamiliar projects, especially kit inspection, trustworthy resumption, change navigation, and saved-map maintenance.
 
 ## Completed Changes
 
-- Route bare explicit invocation, START, and first explicit development invocation through complete project startup.
-- Prepare a harness index, local instructions, canonical state, plan/decision/verification record, source-backed project map, and complete reusable skill snapshot.
-- Keep default new files below harness/ and preserve root instructions/application files.
-- Support JSON state when no convention exists and LEARN explanations for unfamiliar technologies.
-- Reuse external canonical state/records, report that dependency, preserve personal README notes, and avoid competing state.
-- Preserve read-only review/map behavior and minimal implicitly selected changes.
-- Document fresh adoption through the reusable snapshot instead of inheriting another project's state, evidence, or permissions.
-- Add startup reference and two blank navigation templates; update entry-point routing, state contract, start prompt, workflow, and README.
-- Keep the entry point at 63 lines and the skill at thirteen files. Add no executable helpers, dependencies, application stack, or registered client commands.
+- Add HARNESS STATUS for a read-only audit of navigation, canonical state, check gaps, task relevance, saved-map coverage, snapshot differences, and destination conflicts.
+- Add RESUME to reconcile current instructions, source/diff, criteria, evidence, and blockers before continuing a valid unfinished task.
+- Preserve historical results; invalidate affected current evidence without resetting unrelated progress or relabeling saved checks as newly performed.
+- Add CHANGE IMPACT, with optional LEARN explanations, to inspect proposed changes, affected contracts, direct consumers, existing checks, and unknown boundaries without implementation.
+- Track saved-map inspection context by area. Focused updates retain earlier context for untouched sections and distinguish RECHECKED, NEEDS REVIEW, and UNKNOWN source coverage.
+- Define explicit snapshot refresh with a complete staged package, customization checks, a preserved backup, and project-context boundaries.
+- Update routing, state/workflow references, kit templates, README examples, and the generic start prompt.
+- Keep the main skill at 69 lines and the reusable package at fourteen files. Introduce no new required project document, state format, runtime, executable helper, dependency, or registered command.
+- Preserve the existing client installation/update shell procedures and complete startup behavior.
 
 ## Verification Evidence
 
 | Action | Result | Timestamp | Scope and Limits |
 | --- | --- | --- | --- |
-| Resolve repository links/anchors, package boundaries, anonymous English text, whitespace, and entry-point size | PASS | 2026-10-07T14:07:18.342Z | Static document checks |
-| Parse frontmatter, existing invocation metadata, and JSON template; check startup discovery and no tool dependencies | PASS | 2026-10-07T14:07:18.342Z | Source metadata and templates |
-| Independent agent received a bare skill invocation in a fresh project | PASS: five context documents plus all thirteen snapshot files created under harness/; application untouched; state pending without an invented objective | 2026-10-07T14:08:49.175Z | Disposable source-only fixture; no application checks ran |
-| Compare fresh fixture files and snapshot bytes with baseline/source | PASS: eighteen harness-only files, complete snapshot, root source bytes preserved | 2026-10-07T14:08:49.175Z | Project setup boundaries |
-| Independent agent ran START JSON and then START in an existing project | PASS: existing JSON state/record and personal notes preserved; external canonical locations disclosed; second startup produced no changes | 2026-10-07T14:08:49.175Z | Existing implemented task retains required NOT RUN checks; no duplicate state |
-| Compare existing fixture files, state, and snapshot bytes | PASS: only sixteen missing harness files added; original root instructions, source, canonical documents, and personal README unchanged | 2026-10-07T14:08:49.175Z | Existing project preservation |
-| Independent agent handled PROJECT MAP LEARN in an uninitialized project | PASS: bounded read-only explanation; no initialization or other file changes | 2026-10-07T14:07:17.584Z | Read-only routing |
+| Resolve document links/anchors; inspect package boundaries, anonymous English text, whitespace, and entry-point size | PASS: 85 links, eighteen source files, fourteen reusable skill files | 2026-10-07T17:34:33.482Z | Static source checks; no application validation |
+| Parse skill frontmatter, invocation metadata, and JSON template; compare client shell blocks with the baseline | PASS | 2026-10-07T17:34:33.482Z | Metadata and documentation; no personal installation |
+| Independent agent handled HARNESS STATUS with external canonical state, stale evidence, an incomplete customized snapshot, and an inconsistent verified label | PASS: findings explained; no files or Git head changed | 2026-10-07T17:39:20.950Z | Disposable project; no tests or services run by STATUS |
+| Independent agent resumed an implemented task with a real rounding regression | PASS: failure reproduced, rounding restored, three configured unit tests passed, final diff reviewed | 2026-10-07T17:39:20.950Z | Local disposable fixture; no integration behavior certified |
+| Compare resumed files, criteria, history, and original project context | PASS: only implementation, existing state, and existing record changed; notes, validation, map, snapshot, and head preserved | 2026-10-07T17:39:20.950Z | No Git writes or external actions |
+| Independent agent handled CHANGE IMPACT LEARN in a project without a kit | PASS: source-backed Java/Spring Boot explanation, contracts/consumers/checks identified, unknown runtime boundaries disclosed; no files changed | 2026-10-07T17:39:20.950Z | Read-only inspection; no builds or initialization |
+| Independent agent refreshed orders only in a two-area saved map | PASS: only map changed; catalog section and notes preserved verbatim; earlier context retained and changed unreviewed area flagged | 2026-10-07T17:39:20.950Z | Focused source inspection; no runtime checks |
+| Independent agent explicitly refreshed an uncustomized old snapshot | PASS: all fourteen selected files active; exact thirteen-file backup; all fourteen project-specific files preserved | 2026-10-07T17:39:20.950Z | Disposable project; no global installation or application checks |
 
-Final refinements clarify project-root-relative pointers and the separate index fallback when preserving a personal README. No application or integration behavior is certified by setup checks.
+Each behavioral pass used a fresh agent with the source artifact and a normal task request. File contents and Git heads were compared independently against fixture baselines.
 
 ## Blockers and Limits
 
-None for the source update. The kit's nested instruction file does not automatically govern application files outside its directory; explicit use is documented. Existing canonical documents outside harness/ remain external dependencies until a migration is explicitly requested. A copied personal installation must be updated separately.
+None for the source update. Inspection establishes source facts, not running services or exhaustive downstream impact. Snapshot differences require an identified comparison source and do not by themselves prove corruption or an available upgrade. Existing canonical documents outside harness/ remain external dependencies. A copied personal installation and any project-local snapshot must be updated separately.
 
 ## Next Action
 
-Update the installed skill and invoke it in the intended project. Use START LEARN for an unfamiliar stack, or explicitly read the local kit and snapshot when no global installation is available.
+Update the installed skill from this source. Use HARNESS STATUS to inspect an existing kit, RESUME for a clear unfinished task, and CHANGE IMPACT before a proposed cross-component change. Refresh a project-local snapshot explicitly when its source should change.
 
 ## Authorization
 
-The established source-update scope and current complete-kit request authorize edits on the existing branch. No history rewriting, branch changes, personal installation, deployment, or application changes elsewhere are included.
+The established source-update scope and current improvement request authorize edits on the existing branch. No history rewriting, branch changes, personal installation, deployment, or application changes elsewhere are included.

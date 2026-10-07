@@ -1,6 +1,16 @@
 # Project Mapping
 
-Use this reference only when the user requests a project map, architecture overview, technology inventory, or an explanation of how project components connect. Do not activate mapping because a repository is large, or include it in every development task.
+Use this reference when the user requests a project map, architecture overview, technology inventory, proposed change impact, or an explanation of how project components connect. Do not activate mapping because a repository is large, or include it in every development task.
+
+## Contents
+
+- [Request and Output](#request-and-output)
+- [Inspect in Layers](#inspect-in-layers)
+- [What to Explain](#what-to-explain)
+- [Explain an Unfamiliar Stack](#explain-an-unfamiliar-stack)
+- [Change Impact](#change-impact)
+- [Evidence and Boundaries](#evidence-and-boundaries)
+- [Save and Refresh](#save-and-refresh)
 
 ## Request and Output
 
@@ -9,6 +19,7 @@ Treat these phrases as instructions within the skill, not new client commands:
 | Request | Behavior |
 | --- | --- |
 | `PROJECT MAP` | Inspect and explain the project in the response; create or modify no files. |
+| `CHANGE IMPACT <proposed change>` | Inspect the proposed change's affected sources, contracts, direct consumers, and existing checks; change no files and run no checks. |
 | `PROJECT MAP LEARN` | Produce a read-only map for someone unfamiliar with the stack, explaining source-level concepts along one real flow. |
 | `PROJECT MAP <area or question>` | Map the named subsystem or flow, its direct dependencies, and affected consumers. |
 | `PROJECT MAP SAVE` | Inspect and save a project map using existing documentation conventions, or `docs/PROJECT_MAP.md` when none exist. |
@@ -50,6 +61,18 @@ Walk one real request or job from entry point to result. Include a short actual 
 
 Finish with concrete files or symbols to read next and an explanation of where a small change would start. Recommend only existing checks and describe what they establish; do not run them as part of mapping. Keep missing runtime behavior and uninspected areas visible. Follow the response depth requested by the user without expanding the task into implementation.
 
+## Change Impact
+
+For `CHANGE IMPACT <proposed change>` or an equivalent question about what a change could affect, use read-only source inspection. This request authorizes neither implementation nor startup. Add LEARN when unfamiliar concepts need explanation; saving requires an explicit documentation request.
+
+1. Restate the intended behavior change and inspect its current implementation. If the proposal is too ambiguous to identify an entry point or contract, inspect available context and ask only the blocking question.
+2. Trace direct callers and consumers plus relevant outward boundaries. Inspect data shapes, public APIs, persistence/migrations, messages, authorization, configuration, and error behavior only where the proposal can affect them. Search beyond a representative flow for known direct consumers of a shared contract.
+3. Separate files likely to change from consumers that need review. Include uncommitted edits that intersect the proposal. Distinguish documented compatibility requirements from assumptions; do not invent a redesign.
+4. Identify existing targeted and regression checks, relevant failure cases, and missing coverage. Explain what each would establish without running it or claiming it passed.
+5. Provide a compact table: affected area/path, relationship or contract, possible impact, source evidence/confidence, and relevant check. End with the safest starting point, unresolved assumptions, and inspected versus omitted scope.
+
+Use a saved map as an index, then confirm material claims against current sources. A declared dependency or one traced caller does not establish exhaustive impact. Flag generated/dynamic wiring and unavailable external consumers as limits; do not label a change safe from static inspection alone. Keep proposed behavior separate from the implementation that currently exists.
+
 ## Evidence and Boundaries
 
 Label material claims `OBSERVED`, `INFERRED`, or `UNKNOWN`:
@@ -72,6 +95,8 @@ Record scope, actual inspection time, inspected revision or its unavailability, 
 
 For UPDATE, read the saved map and its sources. Use the recorded revision and diff when available to focus inspection, then follow changed contracts into direct consumers. Recheck affected claims and diagram edges; retain unchanged, supported context without starting the entire inventory again. If the baseline is unavailable, state the limitation and inspect the current mapped scope.
 
-Preserve user-written decisions and notes. Flag or correct stale generated claims, summarize significant map changes, and record remaining uncertainty. A focused update should identify which sections were refreshed and which remain outside the current inspection scope. Do not silently rewrite rationale or assert unchanged runtime behavior.
+Preserve user-written decisions and notes. Flag or correct stale generated claims, summarize significant map changes, and record remaining uncertainty. Track freshness per mapped area with supporting paths and its last inspected revision/working-tree context. A focused update must retain the older context for untouched sections; the latest timestamp or revision must not imply that the whole map was rechecked. A focused update should identify which sections were refreshed and which remain outside the current inspection scope. Do not silently rewrite rationale or assert unchanged runtime behavior.
+
+Use `RECHECKED` for claims inspected in the current pass, `NEEDS REVIEW` when relevant changed sources or contradictions affect an unrechecked claim, and `UNKNOWN` when its baseline or sources cannot be assessed. These labels concern source coverage, not running-system validation. Unrelated changes or elapsed time alone do not invalidate an observed relationship. On older maps without an area baseline, retain known context and state the gap rather than inventing a past inspection.
 
 End with the requested map, a short coverage statement, and useful navigation or open questions. For saved output, include its path. Require no new dependency, framework, architecture service, or global state file.
