@@ -19,13 +19,15 @@ Local folders are not automatically installed in ChatGPT or cloud sessions. The 
 
 ## Prepare the Source
 
-The following commands use Bash on Linux, macOS, or WSL. Examples assume the repository is at `~/codici/agents-platform`; adjust the path if needed.
+The following commands use Bash on Linux, macOS, or WSL. Run installation and update commands from the source folder that contains `coding-harness/`. The folder can have any name and be located anywhere, including a path with spaces.
 
-If you have already downloaded or cloned the repository, use that folder. Otherwise:
+`repo_dir="$(pwd -P)"` resolves your current source folder. `$HOME` and `~` refer to the current user's home directory. These are portable variables and conventions, not links to a particular computer or user.
+
+If you have already downloaded or cloned the repository, open a terminal in its source folder. Otherwise, replace `<repository-url>` with the URL of the source repository or your fork, then run:
 
 ```bash
-mkdir -p "$HOME/codici"
-git clone https://github.com/consteuni/agents-platform.git "$HOME/codici/agents-platform"
+git clone "<repository-url>" coding-harness-source
+cd coding-harness-source
 ```
 
 Always install the entire `coding-harness/` folder: copying only `SKILL.md` leaves references and templates unavailable. This repository contains the skill source and does not activate itself.
@@ -39,7 +41,7 @@ These commands are for a first installation. If the destination already exists, 
 ```bash
 (
   set -eu
-  repo_dir="$HOME/codici/agents-platform"
+  repo_dir="$(pwd -P)"
   skill_dir="$HOME/.agents/skills/coding-harness"
   test -f "$repo_dir/coding-harness/SKILL.md"
   test ! -e "$skill_dir"
@@ -62,7 +64,7 @@ Use `/skills` to find the skill. Codex detects skill changes; restart it if the 
 ```bash
 (
   set -eu
-  repo_dir="$HOME/codici/agents-platform"
+  repo_dir="$(pwd -P)"
   skill_dir="$HOME/.claude/skills/coding-harness"
   test -f "$repo_dir/coding-harness/SKILL.md"
   test ! -e "$skill_dir"
@@ -85,7 +87,7 @@ The personal folder makes the skill available across local projects. Open the `/
 ```bash
 (
   set -eu
-  repo_dir="$HOME/codici/agents-platform"
+  repo_dir="$(pwd -P)"
   skill_dir="$HOME/.cursor/skills/coding-harness"
   test -f "$repo_dir/coding-harness/SKILL.md"
   test ! -e "$skill_dir"
@@ -103,7 +105,7 @@ Cursor also reads `~/.agents/skills/` and directories compatible with other clie
 
 When the client offers skill management and creation, invoke `@skill-creator` and ask:
 
-> Create a personal skill named coding-harness from the coding-harness folder at https://github.com/consteuni/agents-platform. Preserve its references, templates, instruction-only operation, and software engineering principles.
+> Create a personal skill named coding-harness from the coding-harness folder in the source repository or files I provide. Preserve its references, templates, instruction-only operation, and software engineering principles.
 
 Make the source accessible to the creator through the connected GitHub integration or the folder's files. After the creator confirms saving, select the skill with `@`. To update it, ask the same creator to update the existing personal skill from the repository, preserving any declared customizations.
 
@@ -111,7 +113,7 @@ Having `~/.agents/skills/` on your computer does not install a skill in your Cha
 
 ## Updating
 
-For a copied installation, update the source first, then replace the installed folder. This procedure preserves the previous version outside client discovery directories and prevents files removed from the source from remaining in the new copy.
+For a copied installation, open a terminal in the source folder, update the source, then replace the installed folder. This procedure preserves the previous version outside client discovery directories and prevents files removed from the source from remaining in the new copy.
 
 Choose **one** destination for the client you want to update:
 
@@ -131,8 +133,13 @@ Then run:
 ```bash
 (
   set -eu
-  repo_dir="$HOME/codici/agents-platform"
-  test "$(git -C "$repo_dir" branch --show-current)" = main
+  repo_dir="$(pwd -P)"
+  branch_name="$(git -C "$repo_dir" branch --show-current)"
+  if [ -z "$branch_name" ]; then
+    echo "The source has a detached HEAD: select the intended branch before updating."
+    exit 1
+  fi
+  git -C "$repo_dir" rev-parse --verify '@{upstream}' >/dev/null
   if [ -n "$(git -C "$repo_dir" status --porcelain)" ]; then
     echo "The source contains local changes: resolve them before updating."
     exit 1
@@ -155,7 +162,7 @@ Then run:
 )
 ```
 
-The initial checks stop the update if the source has local changes, is on another branch, or cannot advance without a merge. If the folder came from a ZIP archive, download a fresh source version and apply the backup and copy steps: `git pull` requires a Git clone.
+The initial checks stop the update if the source has local changes, has a detached HEAD, has no configured upstream, or cannot advance without a merge. The update follows the current branch's configured upstream; it does not assume a branch name, remote name, repository owner, or checkout location. If the folder came from a ZIP archive, download a fresh source version and apply the backup and copy steps: `git pull` requires a Git clone.
 
 If you customized the installed skill, compare the backup with the new version and reapply only the changes you want. Check invocation in the client afterward; open a new session if it continues to use the previous version. Repeat the update for each separate copy you use.
 
@@ -166,7 +173,7 @@ Codex and Claude Code document support for symlinked skill folders. On Linux, ma
 ```bash
 (
   set -eu
-  repo_dir="$HOME/codici/agents-platform"
+  repo_dir="$(pwd -P)"
   skill_root="$HOME/.agents/skills"
   # For Claude Code: skill_root="$HOME/.claude/skills"
   test -f "$repo_dir/coding-harness/SKILL.md"
@@ -226,7 +233,7 @@ In an environment without a skill loader, use [PROJECT_START_PROMPT.md](PROJECT_
 
 ## Inspiration and Documentation
 
-Workflow improvements draw on [ECC by Affaan Mustafa](https://github.com/affaan-m/ECC), revision `ef648e01899ba3e8dc6371642deaaf64b4477775`: progressive context retrieval, meaningful tests, explicit verification, and checkpoints before phase transitions. The instructions are written for this skill; they include no executable code or substantial text copied from ECC.
+Workflow improvements draw on [ECC](https://github.com/affaan-m/ECC), revision `ef648e01899ba3e8dc6371642deaaf64b4477775`: progressive context retrieval, meaningful tests, explicit verification, and checkpoints before phase transitions. The instructions are written for this skill; they include no executable code or substantial text copied from ECC.
 
 Client procedures were checked on October 7, 2026 against official documentation:
 
