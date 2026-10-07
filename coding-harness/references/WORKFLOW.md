@@ -17,6 +17,8 @@ Read this reference for nontrivial changes, project setup, blockers, state migra
 
 ## Orient and Define the Work
 
+For explicit startup or a first explicit development invocation, initialize/reuse support files through [Startup](STARTUP.md) before the development workflow. Preserve read-only requests and existing canonical documents.
+
 - Inspect project instructions, stack, affected code, callers, and tests. Check local Git status when available; do not initialize Git or change branches automatically.
 - Resume the latest target-project state when its next action still serves the current request. The current request may change scope; do not blindly execute a stale action.
 - Reuse existing technology choices. For a new project, resolve only blocking choices before creating application files; distinguish assumptions from requirements.

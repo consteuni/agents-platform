@@ -214,6 +214,49 @@ ls "$HOME/.agents/skills/coding-harness/SKILL.md"
 sed -n '1,6p' "$HOME/.agents/skills/coding-harness/SKILL.md"
 ```
 
+## Complete Project Harness
+
+A bare explicit invocation or START prepares the target project's complete `harness/` kit. The first explicit development invocation also prepares it when missing:
+
+```text
+$coding-harness
+$coding-harness START
+$coding-harness START JSON
+$coding-harness START LEARN
+```
+
+| Default destination | Purpose |
+| --- | --- |
+| `harness/README.md` | Kit entry point, usage, actual file locations, and setup limits |
+| `harness/AGENTS.md` | Project-local instructions and context pointers |
+| `harness/PROJECT_STATE.md` | Objective, task, status, evidence, blockers, and next action |
+| `harness/PROJECT_RECORD.md` | Brief, criteria, plan, decisions, and verification history |
+| `harness/PROJECT_MAP.md` | Inspected architecture, technologies, connections, and reading order |
+| `harness/skill/` | Complete reusable skill copy with its references, templates, and metadata |
+
+START JSON selects JSON instead of Markdown when no state convention exists. START LEARN explains unfamiliar technologies in the map. The map is inspected from actual sources; on an empty project it records that architecture and stack choices are not yet established.
+
+Startup preserves existing files, user notes, progress, and evidence. If a personal harness README already exists, missing kit navigation can be created in harness/INDEX.md without replacing those notes. Repeated startup creates only missing equivalents. Established canonical documents outside `harness/` stay authoritative and are listed in the kit index; such a kit has explicit external document dependencies instead of misleading duplicate state.
+
+All default new files are inside `harness/`. Root instructions and application configuration remain unchanged. Startup writes through authorized agent tools; it is not an executable hook and creates no dependencies, chosen stack, Git repository, branch, commit, or global installation. Missing access or conflicting paths are reported.
+
+Reviews, explanations, and default PROJECT MAP/LEARN requests stay read-only unless initialization is also requested. Implicit selection for a small change does not create a kit. Without a development objective, state remains pending and asks for the next task instead of inventing progress or application verification.
+
+### Use or Adopt the Kit
+
+With the global skill installed, invoke it for the task. Without it, explicitly tell the agent:
+
+```text
+Read harness/AGENTS.md and harness/skill/SKILL.md.
+Use the canonical project documents listed in harness/README.md for this task.
+```
+
+The nested instruction file does not automatically govern application files outside its folder, and the snapshot does not register client commands. Explicit reading lets the agent use the kit without a global installation, subject to current project instructions.
+
+To adopt it in another repo, copy the reusable `harness/skill/` snapshot and request START there to generate fresh project context. If you move the entire folder, reconcile existing project-specific state, map, notes, and evidence before resuming; do not inherit verified status or permissions. Existing snapshot files are preserved; refresh them only on an explicit request.
+
+In Claude Code, use `/coding-harness START`; in Cursor or ChatGPT select the skill and request START. See [Startup](coding-harness/references/STARTUP.md) for the complete workflow.
+
 ## Optional Project Map
 
 When a project becomes difficult to follow, invoke the skill with `PROJECT MAP`. The agent inspects the repository and explains its purpose, current work, major technologies, components, connections, and a representative data flow. Claims include source evidence and distinguish observations from inferences and unknowns.
@@ -250,6 +293,9 @@ Keep generated maps outside the reusable skill. See [Project Mapping](coding-har
 
 | Resource | Purpose |
 | --- | --- |
+| [Startup](coding-harness/references/STARTUP.md) | Prepare or reuse the complete project-local harness |
+| [Kit Index](coding-harness/assets/templates/PROJECT_HARNESS_README.md) | Project harness usage and document pointers |
+| [Agent Guidance](coding-harness/assets/templates/PROJECT_AGENT_GUIDANCE.md) | Instructions inside the project harness |
 | [SKILL.md](coding-harness/SKILL.md) | Main instructions and selection of the smallest workflow |
 | [ENGINEERING.md](coding-harness/references/ENGINEERING.md) | SOLID, KISS, DRY, YAGNI, contracts, security, and testability |
 | [WORKFLOW.md](coding-harness/references/WORKFLOW.md) | Retrieval, debugging, verification, review, and checkpoints |
@@ -261,7 +307,7 @@ Keep generated maps outside the reusable skill. See [Project Mapping](coding-har
 | [PROJECT_RECORD.md](coding-harness/assets/templates/PROJECT_RECORD.md) | Longer plans, decisions, and evidence |
 | [openai.yaml](coding-harness/agents/openai.yaml) | Metadata and starter prompt for compatible clients |
 
-For ongoing work, reuse project state conventions or choose one canonical Markdown or JSON file in `agent-state/`. Small changes and reviews require no new planning files. Maintenance state for this source remains in [REPOSITORY_STATE.md](REPOSITORY_STATE.md) and must not be copied into target projects.
+For ongoing work, reuse project state conventions or choose one canonical Markdown or JSON file in `harness/`. Explicit startup prepares the kit; subsequent small changes and read-only reviews require no additional planning files. Preserve established agent-state/ or other canonical locations. Maintenance state for this source remains in [REPOSITORY_STATE.md](REPOSITORY_STATE.md) and must not be copied into target projects.
 
 In an environment without a skill loader, use [PROJECT_START_PROMPT.md](PROJECT_START_PROMPT.md) and ask the agent to read the source folder. Instructions guide behavior; actual permissions and repository protections determine which operations are available.
 

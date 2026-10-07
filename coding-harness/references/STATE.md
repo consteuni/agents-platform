@@ -4,13 +4,13 @@ Use this reference for a structured checkpoint, a handoff, or state migration. K
 
 ## Choose One Format
 
-Reuse an established project convention. Otherwise, use [Markdown](../assets/templates/PROJECT_STATE.md) for a compact human-readable checkpoint, or [JSON](../assets/templates/PROJECT_STATE.json) when explicit fields help repeated handoffs or consumption by existing tools. Default paths are `agent-state/PROJECT_STATE.md` and `agent-state/PROJECT_STATE.json`; choose one, not both. No new file is required for a small fix or read-only review.
+Reuse an established project convention. Otherwise, use [Markdown](../assets/templates/PROJECT_STATE.md) for a compact human-readable checkpoint, or [JSON](../assets/templates/PROJECT_STATE.json) when explicit fields help repeated handoffs or consumption by existing tools. Default paths are `harness/PROJECT_STATE.md` and `harness/PROJECT_STATE.json`; choose one, not both. Explicit startup initializes the support bundle; implicit small fixes and read-only reviews require no new state files. Preserve an existing agent-state/ or other location instead of silently migrating it.
 
 JSON is data, not an executable dependency. Validate its syntax with an available tool when practical; valid syntax alone proves neither truthful evidence nor completed work. No bundled checker, schema package, or runtime is required. Preserve any existing machine/human pair and its synchronization contract.
 
 ## Fields and Meaning
 
-The JSON template is a blank starting point. Empty fields and an empty criteria list are allowed only before initialization; they cannot establish verification. For an active checkpoint:
+The JSON template is a blank starting point. Empty fields belong to the blank template. An initialized startup checkpoint awaiting a development objective may have an empty criteria list only when status is `pending`, the waiting-task context is explicit, and the next action is to obtain the objective; it cannot establish verification. For an active checkpoint:
 
 | Field | Contract |
 | --- | --- |
@@ -19,7 +19,7 @@ The JSON template is a blank starting point. Empty fields and an empty criteria 
 | `status` | Exactly `pending`, `in_progress`, `implemented`, `verified`, or `blocked`, as defined in [Workflow](WORKFLOW.md#status-and-checkpoint). |
 | `context` | Actual branch, inspected revision, and access mode or limitation. Use `null` for an unavailable branch or revision; never infer clean local status from a remote read. |
 | `last_checkpoint` | Actual checkpoint time in ISO 8601 format, including timezone. Do not invent a time for an earlier check. |
-| `acceptance_criteria` | Nonempty array of current criteria, each with `id`, `description`, `required` boolean, `result`, `reason`, and `evidence`. |
+| `acceptance_criteria` | Nonempty array for an active development task; an explicit waiting-task startup may use an empty array. Each criterion has `id`, `description`, `required` boolean, `result`, `reason`, and `evidence`. |
 | `changed_files` | Paths actually changed for this task, relative to the project root; an empty array is valid before implementation. |
 | `confirmed_facts`, `hypotheses` | Keep observed facts separate from unconfirmed explanations; concise strings are sufficient. |
 | `blockers` | Concrete unresolved conditions and their impact. May be empty. Missing required verification belongs here even when implementation is finished. |

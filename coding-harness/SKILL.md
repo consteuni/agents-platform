@@ -1,6 +1,6 @@
 ---
 name: coding-harness
-description: "Guide an agent through software development with proportionate planning, engineering principles, evidence-based verification, and project continuity. Use for implementing features, fixing bugs, reviewing or refactoring code, starting a software project, resuming unfinished development, or mapping project technologies, components, and connections on request, including explaining an unfamiliar stack. Follow the existing project stack and conventions."
+description: "Guide an agent through software development with proportionate planning, engineering principles, evidence-based verification, and project continuity. Use for initializing a complete project-local harness on explicit startup, implementing features, fixing bugs, reviewing or refactoring code, starting a software project, resuming unfinished development, or mapping project technologies, components, and connections on request, including explaining an unfamiliar stack. Follow the existing project stack and conventions."
 ---
 
 # Coding Harness
@@ -17,10 +17,15 @@ Act as a senior developer helping the user produce working, maintainable code. K
 - Keep secrets and confidential data out of code, logs, examples, and state. Do not read or display secret files.
 - Minimize context and output without omitting required checks: search first, read relevant ranges, batch independent lookups, and avoid repeating unchanged findings.
 
+## Startup Routing
+
+For a bare explicit invocation, `START`, or a first explicit development invocation without a kit, read [Startup](references/STARTUP.md) and prepare the complete `harness/` folder: index, local guidance, canonical state, record, source-backed map, and reusable skill snapshot. Preserve existing files and equivalents. `START JSON` selects new JSON state; `START LEARN` adds beginner explanations. Review/explanation and default map requests stay read-only; implicit selection for a small fix does not trigger setup.
+
 ## Choose the Smallest Workflow
 
 | Situation | Action |
 | --- | --- |
+| Explicit startup / first development invocation | Create/reuse the complete project-local kit through [Startup](references/STARTUP.md); preserve notes and established state conventions. |
 | Requested project map or architecture overview | Read [Project Mapping](references/PROJECT_MAP.md). Explain technologies, components, connections, current work, and source evidence. Keep the default read-only; save or refresh documentation only when requested. |
 | Read-only review or explanation | Inspect relevant sources and report evidenced findings; for code review, use the Review Findings section in [Workflow](references/WORKFLOW.md). Create no project state or planning files. |
 | Small, localized change | Inspect the affected behavior, edit, run the nearest relevant check, and report the result. Use existing state if continuity needs an update; require no new planning files. |
@@ -49,7 +54,7 @@ Run mapping only on an explicit request such as `PROJECT MAP` or a natural-langu
 
 Keep this skill's instructions and bundled templates unchanged while working on a target project. Store working facts in that project, outside the skill directory.
 
-Reuse the project's established state conventions. If ongoing work has no state location, use `agent-state/PROJECT_STATE.md` from [Markdown State](assets/templates/PROJECT_STATE.md), or choose `agent-state/PROJECT_STATE.json` from [JSON State](assets/templates/PROJECT_STATE.json) for structured handoffs. Keep one canonical state file; read [State Contract](references/STATE.md) when choosing JSON, checking evidence, or migrating state. Initialize state only when continuity is needed. Add `agent-state/PROJECT_RECORD.md` from [Record Template](assets/templates/PROJECT_RECORD.md) only when plans, decisions, or verification need more space.
+Reuse the project's established state conventions. Explicit startup prepares the complete kit under `harness/` using [Startup](references/STARTUP.md). Otherwise, when continuity needs state and no convention exists, use `harness/PROJECT_STATE.md` from [Markdown State](assets/templates/PROJECT_STATE.md), or JSON from [JSON State](assets/templates/PROJECT_STATE.json). Keep one canonical state file; read [State Contract](references/STATE.md) for JSON, evidence, or migration. Use `harness/PROJECT_RECORD.md` from [Record Template](assets/templates/PROJECT_RECORD.md) for plans, decisions, and verification. Keep existing `agent-state/` or other canonical paths instead of silently migrating them.
 
 Before a phase transition or context reduction in ongoing work, save acceptance criteria, confirmed facts, unresolved issues, and an executable next step. Do not rely on conversation history or task-list tools as the only durable record.
 

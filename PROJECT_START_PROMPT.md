@@ -2,6 +2,10 @@
 
 Read [coding-harness/SKILL.md](coding-harness/SKILL.md) and follow its workflow for this task. Read project instructions first and load detailed references only when relevant.
 
+## Startup
+
+Initialize or reuse the complete harness/ kit through the skill's START workflow before development: index, local guidance, canonical state, plan/decision/verification record, source-backed project map, and a reusable local skill copy. Preserve existing notes and conventions. Keep default writes below harness/ and create only missing equivalents. Add LEARN for unfamiliar-stack explanations.
+
 ## Task
 
 - Goal and first useful workflow: [what should work]
@@ -13,7 +17,7 @@ Read [coding-harness/SKILL.md](coding-harness/SKILL.md) and follow its workflow 
 
 Inspect affected code and existing solutions before editing. Preserve user changes, public contracts, conventions, and the current branch. Apply engineering principles proportionally, implement the smallest complete change, and use configured project checks.
 
-For a small change, avoid new planning files. For ongoing work, reuse project state; if absent, initialize a clean checkpoint outside the skill using its template. Never inherit source-repository task history or checks.
+Prepare the support bundle on explicit startup. For later small changes, reuse it without creating more planning files. For ongoing work, keep the canonical checkpoint current outside the skill. Never inherit source-repository task history or checks.
 
 Clarify only choices that block correct implementation. Do not choose a new stack, create branches, perform Git writes, delete data, deploy, or publish without specific applicable authorization.
 

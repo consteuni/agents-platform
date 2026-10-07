@@ -1,47 +1,53 @@
 # Repository State
 
-Updated: 2026-10-07T10:05:02.489Z
+Updated: 2026-10-07T14:09:56.339Z
 Branch context: existing source branch; inspect the actual ref before resuming maintenance.
 Access context: connected GitHub repository; local checkout status unavailable.
 
 ## Current Objective
 
-Maintain an instruction-only development skill with generic English guidance, proportionate engineering practice, truthful verification, project continuity, and optional project orientation.
+Maintain an instruction-only development skill with anonymous English guidance, truthful verification, optional project orientation, and a complete reusable project-local harness.
 
 ## Current Task and Status
 
-TASK-015 — verified
+TASK-016 — verified
 
-Requirement: provide an on-demand way to understand a large project's current work, technologies, components, connections, and flows, including beginner explanations for an unfamiliar stack.
+Requirement: explicitly launching the skill should prepare the complete support kit under harness/, allowing adoption in other repositories while preserving existing work.
 
 ## Completed Changes
 
-- Add optional PROJECT MAP for read-only orientation, named-area focus, LEARN for unfamiliar technologies, SAVE for requested documentation, and UPDATE for a saved map.
-- Add a mapping reference that follows source wiring, distinguishes observations/inferences/unknowns, reports coverage, and separates source inspection from runtime validation.
-- Add a blank map template with technology roles, entry points, connection contracts, a main flow, optional concept guide, change navigation, and preserved decisions.
-- Route the optional workflow from the skill entry point and document activation with client-independent prompt phrases in the README.
-- Preserve existing development rules, state conventions, client installation procedures, anonymity, and English text.
-- Keep the entry point at 58 lines and the reusable skill at ten files. Add no executable tools, dependencies, mandatory scans, automatic mapping, or registered client commands.
+- Route bare explicit invocation, START, and first explicit development invocation through complete project startup.
+- Prepare a harness index, local instructions, canonical state, plan/decision/verification record, source-backed project map, and complete reusable skill snapshot.
+- Keep default new files below harness/ and preserve root instructions/application files.
+- Support JSON state when no convention exists and LEARN explanations for unfamiliar technologies.
+- Reuse external canonical state/records, report that dependency, preserve personal README notes, and avoid competing state.
+- Preserve read-only review/map behavior and minimal implicitly selected changes.
+- Document fresh adoption through the reusable snapshot instead of inheriting another project's state, evidence, or permissions.
+- Add startup reference and two blank navigation templates; update entry-point routing, state contract, start prompt, workflow, and README.
+- Keep the entry point at 63 lines and the skill at thirteen files. Add no executable helpers, dependencies, application stack, or registered client commands.
 
 ## Verification Evidence
 
-| Action | Result | Timestamp | Scope and Limitations |
+| Action | Result | Timestamp | Scope and Limits |
 | --- | --- | --- | --- |
-| Resolve repository Markdown links and heading anchors; check package boundaries, anonymous English contents, entry-point size, and whitespace | PASS | 2026-10-07T10:02:23.342Z | Static source checks; instructions cannot enforce future compliance |
-| Parse frontmatter and existing OpenAI metadata; verify project-map and unfamiliar-stack triggers | PASS | 2026-10-07T10:02:23.342Z | Metadata and routing; no personal installation performed |
-| Independent agent used PROJECT MAP LEARN on a small Java/Spring Boot document-download fixture | PASS: language/framework distinction, beginner concepts, source-backed request flow, reading order, declared-version limits, stale queue/cache notes, and explicit runtime unknowns | 2026-10-07T10:03:20.546Z | Synthetic project; no application, build, test, or database execution |
-| Compare all learning-fixture files and Git state with the baseline | PASS: no file modifications, new map/state documents, or commits | 2026-10-07T10:03:20.546Z | Read-only mode boundaries |
-| Independent agent refreshed an existing saved invoice map | PASS: stale queue/202 flow corrected to awaited insertion/201; notes retained; missing bootstrap wiring and runtime evidence remain unknown | 2026-10-07T10:03:59.473Z | Synthetic project; source inspection only |
-| Compare refreshed-map fixture files and Git state with the baseline | PASS: only the existing map changed; application files, unfinished task state, and Git history untouched | 2026-10-07T10:03:59.473Z | Documentation update boundaries |
+| Resolve repository links/anchors, package boundaries, anonymous English text, whitespace, and entry-point size | PASS | 2026-10-07T14:07:18.342Z | Static document checks |
+| Parse frontmatter, existing invocation metadata, and JSON template; check startup discovery and no tool dependencies | PASS | 2026-10-07T14:07:18.342Z | Source metadata and templates |
+| Independent agent received a bare skill invocation in a fresh project | PASS: five context documents plus all thirteen snapshot files created under harness/; application untouched; state pending without an invented objective | 2026-10-07T14:08:49.175Z | Disposable source-only fixture; no application checks ran |
+| Compare fresh fixture files and snapshot bytes with baseline/source | PASS: eighteen harness-only files, complete snapshot, root source bytes preserved | 2026-10-07T14:08:49.175Z | Project setup boundaries |
+| Independent agent ran START JSON and then START in an existing project | PASS: existing JSON state/record and personal notes preserved; external canonical locations disclosed; second startup produced no changes | 2026-10-07T14:08:49.175Z | Existing implemented task retains required NOT RUN checks; no duplicate state |
+| Compare existing fixture files, state, and snapshot bytes | PASS: only sixteen missing harness files added; original root instructions, source, canonical documents, and personal README unchanged | 2026-10-07T14:08:49.175Z | Existing project preservation |
+| Independent agent handled PROJECT MAP LEARN in an uninitialized project | PASS: bounded read-only explanation; no initialization or other file changes | 2026-10-07T14:07:17.584Z | Read-only routing |
+
+Final refinements clarify project-root-relative pointers and the separate index fallback when preserving a personal README. No application or integration behavior is certified by setup checks.
 
 ## Blockers and Limits
 
-None for the source update. The example projects do not establish real application or integration behavior. A copied personal installation must be updated separately. Repository ownership and existing Git history remain separate from anonymous file contents.
+None for the source update. The kit's nested instruction file does not automatically govern application files outside its directory; explicit use is documented. Existing canonical documents outside harness/ remain external dependencies until a migration is explicitly requested. A copied personal installation must be updated separately.
 
 ## Next Action
 
-Update the installed copy, then request PROJECT MAP or PROJECT MAP LEARN in a target project. Use SAVE or UPDATE only when persistent map documentation is wanted.
+Update the installed skill and invoke it in the intended project. Use START LEARN for an unfamiliar stack, or explicitly read the local kit and snapshot when no global installation is available.
 
 ## Authorization
 
-The established source-update scope and current feature request authorize edits on the existing branch. No branch changes, history rewriting, personal installation, or deployment elsewhere are included.
+The established source-update scope and current complete-kit request authorize edits on the existing branch. No history rewriting, branch changes, personal installation, deployment, or application changes elsewhere are included.
