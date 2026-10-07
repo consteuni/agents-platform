@@ -1,57 +1,49 @@
 # Repository State
 
-Updated: 2026-10-07T08:09:44Z
+Updated: 2026-10-07T08:22:21.683Z
 Branch: main
 Access context: connected GitHub repository; local checkout status unavailable.
 
 ## Current Objective
 
-Maintain a lightweight, documentation-only skill for reliable code development using the target project's existing stack and tools.
+Maintain an instruction-only development skill with proportionate engineering guidance, truthful verification, reusable handoffs, and documented client installation.
 
 ## Current Task and Status
 
-TASK-011 — verified
+TASK-012 — verified
 
-Requirement: take useful inspiration from ECC while preserving the instruction-only design, proportional workflow, engineering rules, and safety boundaries.
+Requirement: accept modest additional structure where it makes the skill more useful, and document installation, update, and invocation according to the client.
 
-## Plan and Completed Changes
+## Completed Changes
 
-1. Inspect ECC's relevant workflow references and compare them with the current skill.
-2. Adapt focused retrieval, behavior-first debugging, explicit completion gates, review findings, and phase-boundary handoffs.
-3. Strengthen the project-state template with acceptance-to-evidence mapping and add optional project-specific reusable findings.
-4. Check source structure and references, exercise the skill on isolated scenarios, and save the requested update on existing main.
-
-- Keep the skill at five files; entry point is 54 lines.
-- Preserve existing engineering requirements, authorization rules, and target-project state separation.
-- Use existing project tools; add no executable helpers, hooks, runtime dependencies, mandatory agents, coverage percentages, or timed verification loops.
-- Add attribution and a concise adaptation map in the source README.
-- Keep useful learning in target-project records rather than silently changing globally installed instructions.
-
-## Source and Adaptation
-
-Reference: [ECC by Affaan Mustafa](https://github.com/affaan-m/ECC), revision `ef648e01899ba3e8dc6371642deaaf64b4477775`.
-
-Inspected the verification-loop, iterative-retrieval, strategic-compact, development-workflow, code-review, and tdd-guide references plus the upstream license. The skill's guidance is independently written from the workflow ideas; no upstream executable code or substantial text is copied.
+- Add a blank optional JSON checkpoint and a state contract with criterion-level evidence, scope, limitations, invalidation, and verification conditions.
+- Preserve a single canonical project checkpoint, existing conventions, and the small-change workflow; Markdown remains available.
+- Add optional OpenAI selector metadata, an invocation prompt, and implicit invocation policy without tool dependencies.
+- Expand the source README in Italian with Codex CLI/IDE, Claude Code, Cursor, and ChatGPT procedures, project scope, updates with backup, symlink alternatives, and discovery troubleshooting.
+- Keep eight reusable skill files and a concise entry point. Add no runtime, executable helpers, hooks, new stack, or mandatory delegation.
+- Preserve the ECC refinements delivered in [the previous source update](https://github.com/consteuni/agents-platform/commit/41414162d9fc0e9489042eb517784ba62c0b9dd2).
 
 ## Verification Evidence
 
-| Level | Command or Action | Result | Timestamp | Scope | Limitations |
-| --- | --- | --- | --- | --- | --- |
-| Targeted | Source review and checks for required workflow guidance, naming, and entry-point size | PASS: focused retrieval, reproduction before fix, evidence gates, review findings, and checkpoint rules present; concise entry point | 2026-10-07T08:09:44Z | Updated skill source | Instructions do not guarantee future agent compliance |
-| Regression | Resolve all local Markdown links and heading anchors; review whitespace and package boundaries | PASS: links and table-of-contents anchors resolve; references stay inside the skill; no trailing whitespace or unwanted helper references | 2026-10-07T08:09:44Z | All source documents | Static document checks |
-| Targeted | Independent agent used the candidate skill on an isolated blank-input normalization defect | PASS: agent observed regression failure before editing and success after the minimal fix; only implementation and relevant tests changed | 2026-10-07T08:09:44Z | Bug investigation workflow | Small example; no real service integration |
-| Regression | Repeat the example project's configured `npm test` | PASS: three tests, including valid inputs and empty, ordinary, and Unicode whitespace | 2026-10-07T08:09:44Z | Isolated example project | Project-owned test tools; harmless environment proxy warning |
-| Manual | Independent agent produced a checkpoint with passing unit tests and an unavailable required database check | PASS: implementation recorded separately from verification; integration marked NOT RUN with a blocker and executable next step | 2026-10-07T08:09:44Z | Incomplete-verification handoff | Supplied facts only; database behavior was not tested |
-| Regression | Inspect example-project file listing and compare proposed source changes | PASS: no new planning files for the localized fix; source changes limited to six existing documents | 2026-10-07T08:09:44Z | Scope and proportionality | No production or local-user environment modified |
+| Action | Result | Timestamp | Scope and Limitations |
+| --- | --- | --- | --- |
+| Check document links, heading anchors, whitespace, and package boundaries; parse JSON template and example | PASS | 2026-10-07T08:16:24.387Z | Source structure; instructions cannot enforce future compliance |
+| Parse SKILL frontmatter and OpenAI YAML; check metadata fields, description length, prompt, and policy | PASS | 2026-10-07T08:16:24.387Z | Static metadata; actual local-client discovery not exercised |
+| Independent agent used the candidate skill to produce a JSON checkpoint from supplied order-transaction facts | PASS: blocked, passing unit/diff evidence, required database checks NOT RUN, concrete resume step, no invented verification | 2026-10-07T08:16:49Z | Handoff reasoning from supplied facts; no database integration ran |
+| Check eight Bash blocks and exercise installation for three destination conventions with isolated dummy fixtures | PASS: syntax, full-folder copying, existing-destination preservation, symlink guards | 2026-10-07T08:21:38.597Z | Local command behavior; no real client was installed |
+| Exercise the documented update against an isolated local Git remote and installed fixture | PASS: source advances on main, old copy backed up, obsolete files absent in new copy, dirty source rejected before installation changes | 2026-10-07T08:21:38.597Z | Disposable fixture; user machine and production untouched |
+| Verify client discovery paths and invocation against official OpenAI, Claude Code, and Cursor documentation | PASS | 2026-10-07T08:22:21.683Z | Documentation checked on 2026-10-07; client versions and interfaces can differ |
 
-## Blockers
+The previous ECC update also passed an independent regression-fix exercise: a failing blank-input test was observed before the minimal fix, followed by three passing configured tests. Those results remain in the preceding commit's repository state.
 
-None for the source update. A locally installed copy does not update automatically when the source repository changes.
+## Blockers and Limits
+
+None for the source update. A copied personal installation must be updated separately. ChatGPT personal creation and local client installation were not performed here.
 
 ## Next Action
 
-Update the locally installed skill copy and try it on a real project task; keep further refinements based on observed behavior.
+Follow the README for the chosen client, update the personal copy, and invoke coding-harness on a real project task. Base future changes on observed outcomes.
 
 ## Authorization
 
-The current request, together with the established repository-update scope, authorizes this documentation update in consteuni/agents-platform on existing main. No branch changes, history rewriting, personal-skill installation, or deployment elsewhere are authorized.
+The established repository-update scope and the current requests authorize source changes in consteuni/agents-platform on existing main. No branch changes, history rewriting, personal installation, or deployment elsewhere are included.

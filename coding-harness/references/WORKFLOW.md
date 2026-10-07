@@ -103,7 +103,7 @@ Use these statuses consistently:
 
 Use one canonical project state file. If the project already maintains machine and human state, preserve its contract and synchronize them rather than introducing competing state.
 
-Update a compact checkpoint when ongoing work completes, scope changes, a blocker appears, a session ends, or the user requests CHECKPOINT. Include the objective, current task and status, actual branch or unavailable context, changed files, verification evidence, blockers, timestamp, and an executable next action. Keep it below approximately 100 lines; replace stale operational facts rather than appending a diary.
+Update a compact checkpoint when ongoing work completes, scope changes, a blocker appears, a session ends, or the user requests CHECKPOINT. Include the objective, current task and status, actual branch or unavailable context, changed files, verification evidence, blockers, timestamp, and an executable next action. Keep checkpoints compact; aim for approximately 100 lines in Markdown, and retain the necessary criteria and evidence in JSON. Replace stale operational facts rather than appending a diary. For field definitions, JSON examples, and verification conditions, read [State Contract](STATE.md).
 
 For a small completed fix, a concise result is sufficient unless an existing checkpoint would become misleading. For a read-only review, do not create or update project state.
 

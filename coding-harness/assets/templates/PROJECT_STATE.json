@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "objective": "",
+  "current_task": {
+    "id": "",
+    "title": ""
+  },
+  "status": "pending",
+  "context": {
+    "branch": null,
+    "revision": null,
+    "access": ""
+  },
+  "last_checkpoint": null,
+  "acceptance_criteria": [],
+  "changed_files": [],
+  "confirmed_facts": [],
+  "hypotheses": [],
+  "blockers": [],
+  "next_action": ""
+}

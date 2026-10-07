@@ -44,7 +44,7 @@ For review-only requests, execute inspection and reporting steps; do not impleme
 
 Keep this skill's instructions and bundled templates unchanged while working on a target project. Store working facts in that project, outside the skill directory.
 
-Reuse the project's established state conventions. If ongoing work has no state location, use `agent-state/PROJECT_STATE.md`; initialize it from [State Template](assets/templates/PROJECT_STATE.md) only when continuity is needed. Add `agent-state/PROJECT_RECORD.md` from [Record Template](assets/templates/PROJECT_RECORD.md) only when plans, decisions, or verification need more space.
+Reuse the project's established state conventions. If ongoing work has no state location, use `agent-state/PROJECT_STATE.md` from [Markdown State](assets/templates/PROJECT_STATE.md), or choose `agent-state/PROJECT_STATE.json` from [JSON State](assets/templates/PROJECT_STATE.json) for structured handoffs. Keep one canonical state file; read [State Contract](references/STATE.md) when choosing JSON, checking evidence, or migrating state. Initialize state only when continuity is needed. Add `agent-state/PROJECT_RECORD.md` from [Record Template](assets/templates/PROJECT_RECORD.md) only when plans, decisions, or verification need more space.
 
 Before a phase transition or context reduction in ongoing work, save acceptance criteria, confirmed facts, unresolved issues, and an executable next step. Do not rely on conversation history or task-list tools as the only durable record.
 
