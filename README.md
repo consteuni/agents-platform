@@ -22,6 +22,6 @@ Make the `coding-harness/` folder available to the agent or add its SKILL.md to 
 
 Keep target-project state outside the reusable skill. Reuse the project's conventions, or use `agent-state/` when ongoing work needs a state location. Small changes and read-only reviews require no new planning documents.
 
-Source-repository maintenance facts stay in [REPOSITORY_STATE.md](REPOSITORY_STATE.md) and must not be copied into target projects. Earlier source-kit documents remain in `harness/` for reference and migration; they are not part of the reusable skill. Earlier versions also remain in repository history.
+Source-repository maintenance facts stay in [REPOSITORY_STATE.md](REPOSITORY_STATE.md) and must not be copied into target projects. The superseded source kit has been removed; earlier versions remain available in repository history.
 
 Instructions do not enforce access controls. Configure actual repository protections and tool permissions for the environment.
