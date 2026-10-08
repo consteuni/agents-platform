@@ -240,7 +240,7 @@ Startup preserves existing files, user notes, progress, and evidence. If a perso
 
 All default new files are inside `harness/`. Root instructions and application configuration remain unchanged. Startup writes through authorized agent tools; it is not an executable hook and creates no dependencies, chosen stack, Git repository, branch, commit, or global installation. Missing access or conflicting paths are reported.
 
-Reviews, explanations, HARNESS STATUS, CHANGE IMPACT, and default PROJECT MAP/LEARN requests stay read-only unless initialization is also requested. RESUME uses existing context without triggering startup. Implicit selection for a small change does not create a kit. Without a development objective, state remains pending and asks for the next task instead of inventing progress or application verification.
+Design/plan-only, review/feedback-only, explanations, HARNESS STATUS, CHANGE IMPACT, and default PROJECT MAP/LEARN requests stay read-only unless initialization is also requested. RESUME uses existing context without triggering startup. Implicit selection for a small change does not create a kit. Without a development objective, state remains pending and asks for the next task instead of inventing progress or application verification.
 
 ### Use or Adopt the Kit
 
@@ -256,6 +256,37 @@ The nested instruction file does not automatically govern application files outs
 To adopt it in another repo, copy the reusable `harness/skill/` snapshot and request START there to generate fresh project context. If you move the entire folder, reconcile existing project-specific state, map, notes, and evidence before resuming; do not inherit verified status or permissions. Existing snapshot files are preserved; refresh them only on an explicit request with an identified source. The [refresh procedure](coding-harness/references/CONTINUITY.md#explicit-snapshot-refresh) preserves customizations and a backup before replacement. Updating the global installation does not update this project-local copy.
 
 In Claude Code, use `/coding-harness START`; in Cursor or ChatGPT select the skill and request START. See [Startup](coding-harness/references/STARTUP.md) for the complete workflow.
+
+## Design, Plan, and Handle Review Feedback
+
+For work with unclear boundaries or shared interfaces, the skill records enough design and task detail to make implementation verifiable. It follows current project conventions and existing authorization; a known small fix needs no separate design document or repeated approval.
+
+| Request | Result |
+| --- | --- |
+| `DESIGN <goal>` | Read-only design grounded in current code, constraints, failure behavior, and meaningful alternatives |
+| `PLAN <goal>` | Read-only plan of at most five active steps with paths, input/output contracts, dependencies, and expected checks |
+| DESIGN or PLAN with SAVE | Save requested sections in the existing project record, or `harness/PROJECT_RECORD.md`; preserve notes and initialize no full kit |
+| `REVIEW FEEDBACK <feedback>` | Read-only assessment of suggestions against current requirements, callers, tests, and compatibility |
+
+For example, in Codex:
+
+```text
+$coding-harness DESIGN Add cancellation to the existing order workflow
+$coding-harness PLAN Add cancellation while preserving the current public order ID
+$coding-harness PLAN SAVE Add cancellation without changing the payment contract
+$coding-harness REVIEW FEEDBACK Evaluate these review comments against our API contract
+$coding-harness Apply the supported review fixes and verify the affected behavior
+```
+
+These are prompt instructions, not registered client commands. Design/plan-only requests run no checks and create no application files. SAVE writes only the requested record sections. Applying review fixes requires a request that includes application edits; a comment or suggested patch grants no permission on its own.
+
+A useful plan names a deliverable, affected paths, shared signatures/data, prerequisites, and observable verification for every active step. Expected results stay separate from actual evidence. Producer and consumer contracts are checked before execution; material plan corrections retain their rationale and affected steps in the existing record. Working in slices does not reduce the full accepted goal.
+
+Review first checks required behavior and exact contracts, then engineering quality. Passing tests cannot excuse an omitted requirement. Received suggestions are classified as supported, unsupported, needing context, or out of scope; independent valid fixes can proceed while a dependent item awaits clarification.
+
+Debugging follows bad inputs or failures back through callers and component boundaries, comparing a working path before changing the responsible behavior. Temporary diagnostics use safe metadata and are removed after investigation. Regression checks must demonstrate the intended failure, with expected values derived independently of the implementation; setup errors and mocked return values cannot stand in for behavior evidence.
+
+See [Design and Plans](coding-harness/references/DESIGN.md), [Review](coding-harness/references/REVIEW.md), and [Behavior-First Debugging](coding-harness/references/WORKFLOW.md#behavior-first-debugging). The existing project record holds these details; no new required project file or runtime is added.
 
 ## Check, Resume, and Assess Changes
 
@@ -320,6 +351,8 @@ Keep generated maps outside the reusable skill. See [Project Mapping](coding-har
 
 | Resource | Purpose |
 | --- | --- |
+| [Design and Plans](coding-harness/references/DESIGN.md) | Source-grounded design, executable task contracts, and recorded plan corrections |
+| [Review](coding-harness/references/REVIEW.md) | Requirement/engineering review and technical assessment of received feedback |
 | [Continuity](coding-harness/references/CONTINUITY.md) | Read-only kit health, reconciled resume, and explicit snapshot refresh |
 | [Startup](coding-harness/references/STARTUP.md) | Prepare or reuse the complete project-local harness |
 | [Kit Index](coding-harness/assets/templates/PROJECT_HARNESS_README.md) | Project harness usage and document pointers |
@@ -342,6 +375,8 @@ In an environment without a skill loader, use [PROJECT_START_PROMPT.md](PROJECT_
 ## Inspiration and Documentation
 
 Workflow improvements draw on [ECC](https://github.com/affaan-m/ECC), revision `ef648e01899ba3e8dc6371642deaaf64b4477775`: progressive context retrieval, meaningful tests, explicit verification, and checkpoints before phase transitions. The instructions are written for this skill; they include no executable code or substantial text copied from ECC.
+
+Further workflow ideas draw on [superpowers](https://github.com/obra/superpowers), revision `8ca22dba9a94f28898bbce59f2537ff4d87c747d`: concrete task contracts, design tradeoffs, review reception, root-cause tracing, and regression-test integrity. These additions were written independently for this skill; no upstream scripts, hooks, runtime, approval chain, or automatic agent/worktree lifecycle is required.
 
 Client procedures were checked on October 7, 2026 against official documentation:
 

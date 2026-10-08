@@ -6,7 +6,7 @@ Read [coding-harness/SKILL.md](coding-harness/SKILL.md) and follow its workflow 
 
 Initialize or reuse the complete harness/ kit through the skill's START workflow before development: index, local guidance, canonical state, plan/decision/verification record, source-backed project map, and a reusable local skill copy. Preserve existing notes and conventions. Keep default writes below harness/ and create only missing equivalents. Add LEARN for unfamiliar-stack explanations.
 
-Use HARNESS STATUS for a read-only kit audit, RESUME to reconcile existing work before continuing, or CHANGE IMPACT followed by a proposal for read-only impact analysis. These requests do not trigger startup; read-only requests create no files.
+Use DESIGN or PLAN for a read-only proposal, add SAVE for requested record sections, and use REVIEW FEEDBACK to assess suggestions against current code. These modes do not authorize application changes or execution. Use HARNESS STATUS for a read-only kit audit, RESUME to reconcile existing work before continuing, or CHANGE IMPACT followed by a proposal for read-only impact analysis. These requests do not trigger startup; read-only requests create no files.
 
 ## Task
 
@@ -17,7 +17,7 @@ Use HARNESS STATUS for a read-only kit audit, RESUME to reconcile existing work 
 
 ## Expectations
 
-Inspect affected code and existing solutions before editing. Preserve user changes, public contracts, conventions, and the current branch. Apply engineering principles proportionally, implement the smallest complete change, and use configured project checks.
+Inspect affected code and existing solutions before editing. Preserve user changes, public contracts, conventions, and the current branch. Apply engineering principles proportionally, implement the smallest complete change, and use configured project checks. For shared interfaces, give each planned deliverable its paths, input/output contract, dependencies, and observable check. Review required behavior separately from engineering quality before completion.
 
 Prepare the support bundle on explicit startup. For later small changes, reuse it without creating more planning files. For ongoing work, keep the canonical checkpoint current outside the skill. Never inherit source-repository task history or checks.
 

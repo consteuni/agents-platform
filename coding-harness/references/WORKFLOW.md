@@ -22,7 +22,7 @@ For explicit startup or a first explicit development invocation, initialize/reus
 - Inspect project instructions, stack, affected code, callers, and tests. Check local Git status when available; do not initialize Git or change branches automatically.
 - Resume the latest target-project state when its next action still serves the current request. The current request may change scope; do not blindly execute a stale action. For RESUME or HARNESS STATUS, read [Continuity](CONTINUITY.md); inspection-only requests never trigger startup.
 - Reuse existing technology choices. For a new project, resolve only blocking choices before creating application files; distinguish assumptions from requirements.
-- Define success, relevant error cases, compatibility, data constraints, and exclusions. Keep a plan to at most five executable steps and identify affected paths.
+- Define success, relevant error cases, compatibility, data constraints, and exclusions. Keep a plan to at most five executable steps and identify affected paths. For steps sharing interfaces, use [Design and Plans](DESIGN.md): each deliverable names its contract, dependencies, and observable check; reconcile producer/consumer names before editing.
 - Run the nearest practical baseline check before code changes. Record existing failures separately; do not attribute them to the change without evidence.
 - Use the project's own planning conventions. When absent, use the optional PROJECT_RECORD template for nontrivial work. Do not introduce a documentation process for a trivial fix.
 
@@ -39,11 +39,14 @@ Stop exploration when the required behavior, relevant contracts, existing soluti
 ## Behavior-First Debugging
 
 - Reproduce the reported failure with the smallest safe case before changing code when practical. Capture the actual symptom; distinguish a product defect from missing environment setup.
-- State a plausible cause and the observation that would confirm or reject it. Change one relevant factor at a time; use new evidence to choose the next attempt.
-- For a reproducible bug, add a focused regression test when useful. Observe its expected failure against the original behavior, then its success after the minimal fix.
+- Trace the bad value or failure backward through callers to the boundary that introduced it. Compare with a working sibling path and recent relevant changes; fix the responsible behavior instead of making a downstream component conceal the symptom.
+- For failures crossing components, compare inputs/outputs and safe configuration propagation at the relevant boundaries. Use existing safe diagnostics or temporary authorized instrumentation, log shapes/error codes rather than sensitive values, and remove temporary probes after investigation. Do not inspect secret files, dump environments, or contact a real service merely to collect evidence.
+- State a plausible cause and the observation that would confirm or reject it. Change one relevant factor at a time; use new evidence to choose the next attempt. Distinguish a disproved hypothesis from a confirmed environmental limitation.
+- For a reproducible bug, add a focused regression test when useful. Observe its expected failure against the original behavior, then its success after the minimal fix. Confirm the red result is the intended assertion or behavior failure; a missing import, broken fixture, or unavailable dependency is a setup problem, not proof of the defect.
+- Derive expected results from the requirement or a hand-checked fixture, not the same implementation/helper being tested. Exercise the real changed behavior and mock only necessary external boundaries; a mocked return value alone does not verify the component. A check already passing before the fix is baseline/characterization evidence, not a demonstrated regression catch.
 - For new testable behavior, prefer a test that expresses acceptance criteria before implementation. Refactor only as necessary while keeping meaningful checks passing.
 - Do not alter assertions or expectations merely to make a failing implementation pass. Change expected behavior only when the requirement justifies it and explain why.
-- Use manual reproduction when no suitable test harness exists; state its limits. Do not create a test framework or impose a coverage percentage for a small change.
+- Use manual reproduction when no suitable test harness exists; state its limits. Do not create a test framework or impose a coverage percentage for a small change. For intermittent or inaccessible failures, record what is known and the next discriminating observation; do not label an unconfirmed cause or mitigation as a verified root-cause fix.
 
 ## Implement and Review
 
@@ -69,7 +72,7 @@ Use the project's configured tools and commands; do not require a particular lan
 
 ## Completion Gate
 
-Before declaring a code change verified, map every acceptance criterion to its evidence and apply relevant configured gates:
+Before declaring a code change verified, map every acceptance criterion to its evidence and apply relevant configured gates. For nontrivial work, perform requirements and engineering passes through [Review](REVIEW.md); passing tests alone do not prove the requested feature or exact constraints were implemented:
 
 | Gate | Apply when |
 | --- | --- |
@@ -85,7 +88,7 @@ Run each sufficient check once after the relevant change. Rerun when a later edi
 
 ## Review Findings
 
-For a read-only review, lead with demonstrated defects or risks. Give each actionable finding an existing path or symbol, a concrete trigger, likely impact, and relevant evidence. Distinguish observed failure from an inference or an unanswered question.
+For code review or received feedback, read [Review](REVIEW.md). Assess feedback before applying requested fixes; continue independent supported items while a dependent item needs clarification. For a read-only review, lead with demonstrated defects or risks. Give each actionable finding an existing path or symbol, a concrete trigger, likely impact, and relevant evidence. Distinguish observed failure from an inference or an unanswered question.
 
 Prioritize a security issue, data loss, or incorrect required behavior over maintainability and style. Resolve issues that prevent acceptance before marking an implementation verified; record lower-priority follow-up separately without expanding scope.
 

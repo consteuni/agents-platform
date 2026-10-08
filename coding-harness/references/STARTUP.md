@@ -10,7 +10,8 @@ A bare explicit invocation of coding-harness, `START`, or the first explicit dev
 | First explicit development invocation | Prepare missing kit files before development; reuse an existing kit. |
 | `START JSON` | Use JSON instead of Markdown for new canonical state; preserve an existing convention. |
 | `START LEARN` or `START MAP LEARN` | Prepare the same kit and explain unfamiliar technologies in its map. |
-| Review, explanation, HARNESS STATUS, CHANGE IMPACT, or default `PROJECT MAP` / `PROJECT MAP LEARN` | Remain read-only; do not initialize the kit. |
+| Design/plan-only, review/feedback-only, explanation, HARNESS STATUS, CHANGE IMPACT, or default `PROJECT MAP` / `PROJECT MAP LEARN` | Remain read-only; do not initialize the kit. |
+| DESIGN or PLAN SAVE | Save requested record sections through [Design and Plans](DESIGN.md); do not initialize the kit or application. |
 | RESUME | Use existing context through [Continuity](CONTINUITY.md); do not initialize a kit automatically. |
 | Implicit selection for a small change | Use the smallest workflow; do not initialize merely because the skill was selected. |
 

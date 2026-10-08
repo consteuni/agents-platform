@@ -1,6 +1,6 @@
 # Repository State
 
-Updated: 2026-10-07T17:40:39.281Z
+Updated: 2026-10-08T07:43:06.936Z
 Branch context: existing source branch; inspect the actual ref before resuming maintenance.
 Access context: connected GitHub repository; local checkout status unavailable.
 
@@ -10,45 +10,48 @@ Maintain an instruction-only development skill with anonymous English guidance, 
 
 ## Current Task and Status
 
-TASK-017 — verified
+TASK-018 — verified
 
-Requirement: improve the skill's everyday use in large or unfamiliar projects, especially kit inspection, trustworthy resumption, change navigation, and saved-map maintenance.
+Requirement: inspect superpowers for useful missing workflow ideas and improve planning, code-review handling, and debugging in this skill.
 
 ## Completed Changes
 
-- Add HARNESS STATUS for a read-only audit of navigation, canonical state, check gaps, task relevance, saved-map coverage, snapshot differences, and destination conflicts.
-- Add RESUME to reconcile current instructions, source/diff, criteria, evidence, and blockers before continuing a valid unfinished task.
-- Preserve historical results; invalidate affected current evidence without resetting unrelated progress or relabeling saved checks as newly performed.
-- Add CHANGE IMPACT, with optional LEARN explanations, to inspect proposed changes, affected contracts, direct consumers, existing checks, and unknown boundaries without implementation.
-- Track saved-map inspection context by area. Focused updates retain earlier context for untouched sections and distinguish RECHECKED, NEEDS REVIEW, and UNKNOWN source coverage.
-- Define explicit snapshot refresh with a complete staged package, customization checks, a preserved backup, and project-context boundaries.
-- Update routing, state/workflow references, kit templates, README examples, and the generic start prompt.
-- Keep the main skill at 69 lines and the reusable package at fourteen files. Introduce no new required project document, state format, runtime, executable helper, dependency, or registered command.
-- Preserve the existing client installation/update shell procedures and complete startup behavior.
+- Inspect superpowers at revision 8ca22dba9a94f28898bbce59f2537ff4d87c747d, including design, planning, execution, review reception, debugging, and meaningful-test guidance.
+- Add optional DESIGN and PLAN requests with source-grounded requirements, real tradeoffs, exact shared contracts, and observable checks.
+- Keep design/plan-only requests read-only. SAVE changes requested project-record sections only and does not initialize an entire kit or application.
+- Describe at most five active deliverables, each containing its own test/implementation/documentation/check cycle, rather than disconnected activity lists.
+- Check producer/consumer names, prerequisites, criterion coverage, expected outcomes, and material plan deviations.
+- Review required behavior separately from engineering quality; identify omitted requirements even when existing tests do not cover them.
+- Evaluate received feedback against current code and contracts before applying requested fixes. Preserve used validation/compatibility and continue independent supported work.
+- Strengthen debugging with backward tracing, comparison to a working path, safe component-boundary diagnostics, and correction at the responsible source.
+- Require regression evidence for the intended failure; distinguish setup errors, already-passing checks, implementation-derived expectations, and mocked results.
+- Extend the existing project record instead of adding a required project file or state schema. Update routing, templates, English README examples, source attribution, and generic start prompt.
+- Keep the main skill at 75 lines and the reusable package at sixteen files. Add no runtime, scripts, hooks, dependencies, automatic agents/worktrees, or blanket approval stages.
+- Preserve existing complete startup, continuity/map modes, client installation procedures, and project-specific context boundaries.
 
 ## Verification Evidence
 
 | Action | Result | Timestamp | Scope and Limits |
 | --- | --- | --- | --- |
-| Resolve document links/anchors; inspect package boundaries, anonymous English text, whitespace, and entry-point size | PASS: 85 links, eighteen source files, fourteen reusable skill files | 2026-10-07T17:34:33.482Z | Static source checks; no application validation |
-| Parse skill frontmatter, invocation metadata, and JSON template; compare client shell blocks with the baseline | PASS | 2026-10-07T17:34:33.482Z | Metadata and documentation; no personal installation |
-| Independent agent handled HARNESS STATUS with external canonical state, stale evidence, an incomplete customized snapshot, and an inconsistent verified label | PASS: findings explained; no files or Git head changed | 2026-10-07T17:39:20.950Z | Disposable project; no tests or services run by STATUS |
-| Independent agent resumed an implemented task with a real rounding regression | PASS: failure reproduced, rounding restored, three configured unit tests passed, final diff reviewed | 2026-10-07T17:39:20.950Z | Local disposable fixture; no integration behavior certified |
-| Compare resumed files, criteria, history, and original project context | PASS: only implementation, existing state, and existing record changed; notes, validation, map, snapshot, and head preserved | 2026-10-07T17:39:20.950Z | No Git writes or external actions |
-| Independent agent handled CHANGE IMPACT LEARN in a project without a kit | PASS: source-backed Java/Spring Boot explanation, contracts/consumers/checks identified, unknown runtime boundaries disclosed; no files changed | 2026-10-07T17:39:20.950Z | Read-only inspection; no builds or initialization |
-| Independent agent refreshed orders only in a two-area saved map | PASS: only map changed; catalog section and notes preserved verbatim; earlier context retained and changed unreviewed area flagged | 2026-10-07T17:39:20.950Z | Focused source inspection; no runtime checks |
-| Independent agent explicitly refreshed an uncustomized old snapshot | PASS: all fourteen selected files active; exact thirteen-file backup; all fourteen project-specific files preserved | 2026-10-07T17:39:20.950Z | Disposable project; no global installation or application checks |
+| Resolve source links/anchors; inspect package boundaries, anonymous English text, whitespace, and compact entry point | PASS: 102 links, twenty source files, sixteen reusable skill files | 2026-10-08T07:36:34.451Z | Static source checks; no application certification |
+| Parse frontmatter, invocation metadata, and JSON template; compare client shell blocks to baseline | PASS | 2026-10-08T07:36:34.451Z | Metadata and unchanged install/update commands |
+| Initial fresh-agent PLAN pass | Found an activity-list plan despite the intended deliverable contract; tightened grouping, shared names, table output, and plan self-review | 2026-10-08T07:41:12.518Z | Forward-test finding informed the final instructions |
+| New fresh-agent PLAN pass with revised artifact | PASS: two useful deliverables, consistent proposed contracts, dependencies, expected checks, and pending state; no files or Git head changed | 2026-10-08T07:41:12.518Z | Source-only planning; no application checks |
+| Fresh-agent PLAN SAVE with revised artifact | PASS: only harness/PROJECT_RECORD.md created; all ten original files preserved; checks remain NOT RUN | 2026-10-08T07:41:12.518Z | No startup, state, dependencies, or application edits |
+| Fresh-agent applied mixed review feedback | PASS: fixed zero/default pagination, retained validation, preserved stable machine error code while adding readable text; six local tests passed | 2026-10-08T07:41:12.518Z | Existing project record/state updated; notes, map, snapshot, and head preserved |
+| Fresh-agent investigated an import failure crossing extractor/persistence boundaries | PASS: wrong output field corrected at extractor; expected regression failure observed; five local tests passed; persistence guard and preview path preserved | 2026-10-08T07:41:12.518Z | Local in-memory storage only; no real external integration |
+| Fresh-agent reviewed cancellation against current contracts | PASS: missing ownership enforcement and repeated-save/idempotency behavior identified despite narrow existing tests; no files or Git head changed | 2026-10-08T07:41:12.518Z | Read-only review; no checks or initialization |
 
-Each behavioral pass used a fresh agent with the source artifact and a normal task request. File contents and Git heads were compared independently against fixture baselines.
+Behavioral passes used fresh agents, the source artifact, and normal task requests. File inventories, contents, original notes, and Git heads were compared independently with fixture baselines. The revised design/plan guidance was retested; unrelated successful checks were not repeated.
 
 ## Blockers and Limits
 
-None for the source update. Inspection establishes source facts, not running services or exhaustive downstream impact. Snapshot differences require an identified comparison source and do not by themselves prove corruption or an available upgrade. Existing canonical documents outside harness/ remain external dependencies. A copied personal installation and any project-local snapshot must be updated separately.
+None for the source update. Plans and read-only reviews establish source findings and proposed checks, not runtime correctness. Applied fixes in disposable fixtures demonstrate workflow behavior and do not certify another project's application or services. Feedback must be evaluated in the actual project; missing external consumers are not proof that a public contract is unused. Copied personal installations and project-local skill snapshots require their own update.
 
 ## Next Action
 
-Update the installed skill from this source. Use HARNESS STATUS to inspect an existing kit, RESUME for a clear unfinished task, and CHANGE IMPACT before a proposed cross-component change. Refresh a project-local snapshot explicitly when its source should change.
+Update the installed source copy. Use DESIGN or PLAN for a proposal, SAVE only for requested record sections, and REVIEW FEEDBACK to assess comments. For authorized implementation, execute complete deliverables with meaningful verification and preserve current project conventions.
 
 ## Authorization
 
-The established source-update scope and current improvement request authorize edits on the existing branch. No history rewriting, branch changes, personal installation, deployment, or application changes elsewhere are included.
+The established source-update scope and current improvement request authorize edits on the existing branch. No history rewriting, branch changes, personal installation, deployment, external messages, or application changes elsewhere are included.
